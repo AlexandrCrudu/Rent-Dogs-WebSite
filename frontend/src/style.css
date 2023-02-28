@@ -1,0 +1,158 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #94b2c7;
+}
+
+/* header & navbar*/
+
+.header-wrap {
+  background-color: #d79184;
+}
+header {
+  max-width: 1400px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: space-between;
+  align-items: center;
+}
+
+nav li {
+  flex-basis: 48%;
+  margin-bottom: 0.5rem;
+}
+
+nav li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+nav li:first-child a {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "Oxygen Mono";
+}
+
+nav li a h1 {
+  font-weight: normal;
+  margin: 0 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  display: block;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #d6bb94;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #b19164;
+}
+
+@media (min-width: 550px) {
+  header {
+    padding: 3rem;
+  }
+  /* navigation: logo on the top line, the rest of the navigation on the second line */
+  nav ul {
+    justify-content: center;
+    gap: 1.2em;
+  }
+  nav li {
+    flex-basis: auto;
+    margin-bottom: 0;
+  }
+  nav a {
+    color: white;
+    background-color: transparent;
+    padding: 0;
+  }
+  nav a:hover {
+    color: lightgray;
+    background-color: transparent;
+  }
+
+  .missiontext {
+    display: flow-root;
+    max-width: 900px;
+  }
+
+  .missionimg {
+    float: left;
+    shape-outside: polygon(
+      35.84% 94.87%,
+      34.64% 87.05%,
+      51.64% 4.06%,
+      55.1% 2.38%
+    );
+    max-height: 211px;
+  }
+}
+
+@media (min-width: 800px) {
+  nav ul {
+    justify-content: flex-end;
+  }
+  nav li:first-child {
+    flex-basis: auto;
+    margin-right: auto;
+  }
+
+  nav li:last-child {
+    margin-left: 4rem;
+  }
+}
+
+/* mission styles */
+#mission {
+  margin-bottom: 3rem;
+  color: whitesmoke;
+}
+
+.missiontext {
+  display: block;
+  line-height: 1.7;
+  font-size: 1.2rem;
+}
+
+.missionimg {
+  max-height: 150px;
+  display: block;
+}
+
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* section cards */

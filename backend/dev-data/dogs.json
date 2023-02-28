@@ -1,0 +1,315 @@
+[
+  {
+    "name": "Buddy",
+    "breed": "Beagle",
+    "weight_kg": 14,
+    "height_cm": 36,
+    "age": 2,
+    "reviews": [
+      "Buddy is such a friendly dog! He loves to play and has a lot of energy. Would definitely rent him again!",
+      "Buddy is a very well-behaved dog and listens to commands very well. He's also great with children and other dogs.",
+      "Buddy is simply amazing! He's incredibly intelligent and a great companion. Highly recommend renting him!"
+    ],
+    "alias": "Buddy the Bouncing Beagle",
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-74.006, 40.7128]
+    },
+    "pricePerDay": 55
+  },
+  {
+    "name": "Lucy",
+    "breed": "Australian Shepherd",
+    "weight_kg": 21,
+    "height_cm": 46,
+    "age": 3,
+    "reviews": [
+      "Lucy is such a fun dog to be around! She's always happy and loves to play. Would highly recommend renting her!",
+      "Lucy is a very intelligent dog and can learn new tricks quickly. She's also great with children and other dogs.",
+      "Lucy is simply amazing! She's incredibly loyal and will always be by your side. You won't regret renting her!"
+    ],
+    "alias": "Lucy the Loyal Shepherd",
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-122.4194, 37.7749]
+    },
+    "pricePerDay": 87
+  },
+  {
+    "name": "Rocky",
+    "breed": "Boxer",
+    "weight_kg": 32,
+    "height_cm": 58,
+    "age": 5,
+    "reviews": [
+      "Rocky is a very friendly dog and loves to play. He has a lot of energy and is always up for an adventure!",
+      "Rocky is very protective of his owner and will make sure they're always safe. He's also great with children and other dogs.",
+      "Rocky is simply amazing! He's incredibly loyal and will always be there for you. Highly recommend renting him!"
+    ],
+    "alias": "Rocky the Ruff Boxer",
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-87.6298, 41.8781]
+    },
+    "pricePerDay": 99
+  },
+  {
+    "name": "Molly",
+    "breed": "Poodle",
+    "weight_kg": 7,
+    "height_cm": 25,
+    "age": 1,
+    "reviews": [
+      "Molly is a very cute and playful dog. She's always happy and loves to be around people.",
+      "Molly is very intelligent and learns new tricks quickly. She's also great with children and other dogs.",
+      "Molly is simply amazing! She's a great companion and will always be by your side. Would definitely rent her again!"
+    ],
+    "alias": "Molly the Marvelous Poodle",
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-75.1652, 39.9526]
+    },
+    "pricePerDay": 34
+  },
+  {
+    "name": "Winston",
+    "breed": "Golden Retriever",
+    "weight_kg": 32,
+    "height_cm": 60,
+    "age": 4,
+    "alias": "The Floof",
+    "reviews": [
+      "Winston was the best dog we ever rented! He was so friendly and playful. We had a blast playing fetch and going on long walks with him. Highly recommend!",
+      "We absolutely loved renting Winston! He was such a good boy and made our weekend so much fun. Can't wait to rent him again!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-46.6333, -23.5505]
+    },
+    "pricePerDay": 105
+  },
+  {
+    "name": "Daisy",
+    "breed": "Labrador Retriever",
+    "weight_kg": 29,
+    "height_cm": 55,
+    "age": 2,
+    "alias": "The Wigglebutt",
+    "reviews": [
+      "Daisy was amazing! So obedient and well-behaved. We had a wonderful time with her and would definitely rent her again!",
+      "We rented Daisy for a weekend and had an absolute blast! She was so much fun and brought so much joy to our lives. Highly recommend!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-0.1278, 51.5074]
+    },
+    "pricePerDay": 145
+  },
+  {
+    "name": "Buddy",
+    "breed": "Cocker Spaniel",
+    "weight_kg": 12,
+    "height_cm": 35,
+    "age": 3,
+    "alias": "The Snuggler",
+    "reviews": [
+      "Buddy was such a sweet dog! We loved spending time with him and cuddling up on the couch. Highly recommend renting him!",
+      "We rented Buddy for a weekend and had such a great time. He was so affectionate and made us feel so happy. Can't wait to rent him again!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-74.006, 40.7128]
+    },
+    "pricePerDay": 180
+  },
+  {
+    "name": "Cooper",
+    "breed": "Labrador Retriever",
+    "weight_kg": 30,
+    "height_cm": 60,
+    "age": 3,
+    "alias": "The Ball Chaser",
+    "reviews": [
+      "Cooper is the most loving dog I have ever rented! He is incredibly friendly and always up for a game of fetch. His fur is so soft and he has the most adorable puppy eyes. I highly recommend renting Cooper for a day filled with joy and laughter!",
+      "Cooper is such a sweetheart! He is very obedient and always listens to your commands. He is also very energetic and loves to run around. I rented him for a day at the beach and we had a blast playing in the waves together.",
+      "I had such a great time renting Cooper! He is such a fun-loving dog and has a great personality. He is also very well-behaved and easy to take care of. I highly recommend renting Cooper for a day filled with fun and adventure!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [139.6917, 35.6895]
+    },
+    "pricePerDay": 250
+  },
+  {
+    "name": "Luna",
+    "breed": "Golden Retriever",
+    "weight_kg": 27,
+    "height_cm": 56,
+    "age": 2,
+    "alias": "The Cuddler",
+    "reviews": [
+      "Luna is the most affectionate dog I have ever met! She loves to cuddle and be close to you at all times. She also has a playful side and loves to run around and play catch. I highly recommend renting Luna for a day filled with love and fun!",
+      "I had such a great time renting Luna! She is such a happy and friendly dog, and she has the most beautiful coat of fur. She also loves to go on walks and explore new places. I highly recommend renting Luna for a day filled with adventure and excitement!",
+      "Luna is such a joy to be around! She has a great personality and is always up for a game of fetch or a walk around the park. She is also very obedient and easy to take care of. I highly recommend renting Luna for a day filled with fun and happiness!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-74.006, 40.7128]
+    },
+    "pricePerDay": 299
+  },
+
+  {
+    "name": "Biscuit",
+    "breed": "Labrador Retriever",
+    "weight_kg": 25.5,
+    "height_cm": 56,
+    "age": 3,
+    "alias": "The Treat Hound",
+    "reviews": [
+      "Biscuit was the perfect companion for my weekend getaway. She was friendly and obedient, and loved to play fetch at the park. Highly recommend!",
+      "Biscuit is such a sweetheart! She made me feel so loved and welcomed. I would rent her again in a heartbeat."
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-71.0589, 42.3601]
+    },
+    "pricePerDay": 65
+  },
+  {
+    "name": "Cooper",
+    "breed": "Golden Retriever",
+    "weight_kg": 29.5,
+    "height_cm": 61,
+    "age": 2,
+    "alias": "The Snugglepup",
+    "reviews": [
+      "Cooper was the best cuddle buddy. He was so warm and affectionate, and loved to snuggle up on the couch. Highly recommend!",
+      "Cooper is such a gentle giant. He made me feel safe and protected, and was always up for a game of catch."
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-74.006, 40.7128]
+    },
+    "pricePerDay": 100
+  },
+  {
+    "name": "Oliver",
+    "breed": "Shih Tzu",
+    "weight_kg": 6.8,
+    "height_cm": 27,
+    "age": 5,
+    "alias": "The Little Emperor",
+    "reviews": [
+      "Oliver is so cute and lovable. He followed me around everywhere and always wanted to be by my side. Highly recommend!",
+      "Oliver is such a little character. He had me laughing all weekend with his silly antics and playful spirit."
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-122.4194, 37.7749]
+    },
+    "pricePerDay": 150
+  },
+  {
+    "name": "Bailey",
+    "breed": "Poodle",
+    "weight_kg": 12.5,
+    "height_cm": 38,
+    "age": 4,
+    "alias": "The Fluffy Diva",
+    "reviews": [
+      "Bailey was the best dressed dog in town. She loved showing off her outfits and posing for pictures. Highly recommend!",
+      "Bailey is a total fashionista. She has a great sense of style and always knows how to make a statement."
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-118.2437, 34.0522]
+    },
+    "pricePerDay": 300
+  },
+  {
+    "name": "Lucy",
+    "breed": "Cavalier King Charles Spaniel",
+    "weight_kg": 7,
+    "height_cm": 30,
+    "age": 1,
+    "alias": "The Cuddle Bug",
+    "reviews": [
+      "Lucy was the sweetest little dog! She loved to cuddle and was always happy to see us. We would definitely rent her again.",
+      "Lucy was the perfect dog for our family vacation. She was so well-behaved and obedient, and she loved to go on walks with us. We miss her already!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-0.1278, 51.5074]
+    },
+    "pricePerDay": 20
+  },
+  {
+    "name": "Daisy",
+    "breed": "Shih Tzu",
+    "weight_kg": 5,
+    "height_cm": 25,
+    "age": 4,
+    "alias": "The Lap Dog",
+    "reviews": [
+      "Daisy was such a sweet dog! She loved to be held and cuddled, and she was always happy to see us. We had a great time with her.",
+      "Daisy was the perfect dog for our family vacation. She was so well-behaved and obedient, and she loved to go on walks with us. We miss her already!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [2.3522, 48.8566]
+    },
+    "pricePerDay": 75
+  },
+  {
+    "name": "Milo",
+    "breed": "Poodle",
+    "weight_kg": 10,
+    "height_cm": 28,
+    "age": 2,
+    "alias": "The Show-Off",
+    "reviews": [
+      "Milo was such a stylish dog! He loved to show off his fancy haircut and strut his stuff. We had a great time with him.",
+      "Milo was the perfect dog for our family vacation. He was so well-behaved and obedient, and he loved to go on walks with us. We miss him already!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-0.1278, 51.5074]
+    },
+    "pricePerDay": 850
+  },
+  {
+    "name": "Rocky",
+    "breed": "Boxer",
+    "weight_kg": 30,
+    "height_cm": 60,
+    "age": 3,
+    "alias": "The Fighter",
+    "reviews": [
+      "Rocky was such a strong and playful dog! He loved to roughhouse and play tug-of-war. We had a great time with him.",
+      "Rocky was the perfect dog for our family vacation. He was so well-behaved and obedient, and he loved to go on walks with us. We miss him already!"
+    ],
+    "pictures": [],
+    "location": {
+      "type": "Point",
+      "coordinates": [-122.4194, 37.7749]
+    },
+    "pricePerDay": 365
+  }
+]
