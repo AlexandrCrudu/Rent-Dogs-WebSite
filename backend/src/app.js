@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dogRouter from "./routes/dogRoutes.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config({ path: "./config.env" });
 
@@ -15,7 +16,7 @@ mongoose.connect(db_URL).then(() => {
 });
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/dogs", dogRouter);

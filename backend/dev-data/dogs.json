@@ -17,6 +17,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
+    "city": "New York",
+    "countryCode": "US",
     "pricePerDay": 55
   },
   {
@@ -36,6 +38,8 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
+    "city": "San Franciso",
+    "countryCode": "US",
     "pricePerDay": 87,
     "gender": "female"
   },
@@ -56,6 +60,8 @@
       "type": "Point",
       "coordinates": [-87.6298, 41.8781]
     },
+    "city": "Chicago",
+    "countryCode": "US",
     "pricePerDay": 99,
     "gender": "male"
   },
@@ -76,6 +82,8 @@
       "type": "Point",
       "coordinates": [-75.1652, 39.9526]
     },
+    "city": "Philadelphia",
+    "countryCode": "US",
     "pricePerDay": 34,
     "gender": "female"
   },
@@ -95,6 +103,8 @@
       "type": "Point",
       "coordinates": [-46.6333, -23.5505]
     },
+    "city": "Sao Paolo",
+    "countryCode": "BR",
     "pricePerDay": 105,
     "gender": "male"
   },
@@ -114,6 +124,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
+    "city": "London",
+    "countryCode": "UK",
     "pricePerDay": 145,
     "gender": "male"
   },
@@ -133,6 +145,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
+    "city": "New York",
+    "countryCode": "US",
     "pricePerDay": 180,
     "gender": "female"
   },
@@ -153,6 +167,8 @@
       "type": "Point",
       "coordinates": [139.6917, 35.6895]
     },
+    "city": "Tokyo",
+    "countryCode": "JP",
     "pricePerDay": 250,
     "gender": "female"
   },
@@ -173,6 +189,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
+    "city": "New York",
+    "countryCode": "US",
     "pricePerDay": 299,
     "gender": "female"
   },
@@ -193,6 +211,8 @@
       "type": "Point",
       "coordinates": [-71.0589, 42.3601]
     },
+    "city": "Boston",
+    "countryCode": "US",
     "pricePerDay": 65,
     "gender": "female"
   },
@@ -212,6 +232,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
+    "city": "New York",
+    "countryCode": "US",
     "pricePerDay": 100,
     "gender": "male"
   },
@@ -231,6 +253,8 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
+    "city": "San Franciso",
+    "countryCode": "US",
     "pricePerDay": 150,
     "gender": "male"
   },
@@ -250,6 +274,8 @@
       "type": "Point",
       "coordinates": [-118.2437, 34.0522]
     },
+    "city": "Los Angeles",
+    "countryCode": "US",
     "pricePerDay": 300,
     "gender": "female"
   },
@@ -269,6 +295,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
+    "city": "London",
+    "countryCode": "UK",
     "pricePerDay": 20,
     "gender": "female"
   },
@@ -288,6 +316,8 @@
       "type": "Point",
       "coordinates": [2.3522, 48.8566]
     },
+    "city": "Paris",
+    "countryCode": "FR",
     "pricePerDay": 75,
     "gender": "female"
   },
@@ -307,6 +337,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
+    "city": "London",
+    "countryCode": "UK",
     "pricePerDay": 850,
     "gender": "male"
   },
@@ -326,6 +358,8 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
+    "city": "San Franciso",
+    "countryCode": "US",
     "pricePerDay": 365,
     "gender": "male"
   }

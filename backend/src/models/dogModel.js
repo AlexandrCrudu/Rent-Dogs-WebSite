@@ -43,6 +43,14 @@ const dogSchema = new mongoose.Schema({
     },
     coordinates: [Number],
   },
+  city: {
+    type: String,
+    required: [true, "A dog must have a city"],
+  },
+  countryCode: {
+    type: String,
+    required: [true, "A dog must have a country"],
+  },
   // toJSON: { virtuals: true },
   // toObject: { virtuals: true },
 });

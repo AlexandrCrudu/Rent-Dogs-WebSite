@@ -10,3 +10,18 @@ export const getAllDogs = async (req, res) => {
     },
   });
 };
+
+export const getDog = async (req, res) => {
+  const dog = await Dog.findById(req.params.id);
+
+  if (!dog) {
+    console.log(`no document found with ${req.params.id}`);
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      dog,
+    },
+  });
+};
