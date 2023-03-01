@@ -31,6 +31,10 @@ const dogSchema = new mongoose.Schema({
     type: Number,
     min: [1, "A dog must have a price"],
   },
+  gender: {
+    type: String,
+    enum: ["male", "female"],
+  },
   location: {
     type: {
       type: String,

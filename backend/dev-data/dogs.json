@@ -12,6 +12,7 @@
     ],
     "alias": "Buddy the Bouncing Beagle",
     "pictures": [],
+    "gender": "male",
     "location": {
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
@@ -35,7 +36,8 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
-    "pricePerDay": 87
+    "pricePerDay": 87,
+    "gender": "female"
   },
   {
     "name": "Rocky",
@@ -54,7 +56,8 @@
       "type": "Point",
       "coordinates": [-87.6298, 41.8781]
     },
-    "pricePerDay": 99
+    "pricePerDay": 99,
+    "gender": "male"
   },
   {
     "name": "Molly",
@@ -73,7 +76,8 @@
       "type": "Point",
       "coordinates": [-75.1652, 39.9526]
     },
-    "pricePerDay": 34
+    "pricePerDay": 34,
+    "gender": "female"
   },
   {
     "name": "Winston",
@@ -91,7 +95,8 @@
       "type": "Point",
       "coordinates": [-46.6333, -23.5505]
     },
-    "pricePerDay": 105
+    "pricePerDay": 105,
+    "gender": "male"
   },
   {
     "name": "Daisy",
@@ -109,7 +114,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
-    "pricePerDay": 145
+    "pricePerDay": 145,
+    "gender": "male"
   },
   {
     "name": "Buddy",
@@ -127,7 +133,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
-    "pricePerDay": 180
+    "pricePerDay": 180,
+    "gender": "female"
   },
   {
     "name": "Cooper",
@@ -146,7 +153,8 @@
       "type": "Point",
       "coordinates": [139.6917, 35.6895]
     },
-    "pricePerDay": 250
+    "pricePerDay": 250,
+    "gender": "female"
   },
   {
     "name": "Luna",
@@ -165,7 +173,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
-    "pricePerDay": 299
+    "pricePerDay": 299,
+    "gender": "female"
   },
 
   {
@@ -184,7 +193,8 @@
       "type": "Point",
       "coordinates": [-71.0589, 42.3601]
     },
-    "pricePerDay": 65
+    "pricePerDay": 65,
+    "gender": "female"
   },
   {
     "name": "Cooper",
@@ -202,7 +212,8 @@
       "type": "Point",
       "coordinates": [-74.006, 40.7128]
     },
-    "pricePerDay": 100
+    "pricePerDay": 100,
+    "gender": "male"
   },
   {
     "name": "Oliver",
@@ -220,7 +231,8 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
-    "pricePerDay": 150
+    "pricePerDay": 150,
+    "gender": "male"
   },
   {
     "name": "Bailey",
@@ -238,7 +250,8 @@
       "type": "Point",
       "coordinates": [-118.2437, 34.0522]
     },
-    "pricePerDay": 300
+    "pricePerDay": 300,
+    "gender": "female"
   },
   {
     "name": "Lucy",
@@ -256,7 +269,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
-    "pricePerDay": 20
+    "pricePerDay": 20,
+    "gender": "female"
   },
   {
     "name": "Daisy",
@@ -274,7 +288,8 @@
       "type": "Point",
       "coordinates": [2.3522, 48.8566]
     },
-    "pricePerDay": 75
+    "pricePerDay": 75,
+    "gender": "female"
   },
   {
     "name": "Milo",
@@ -292,7 +307,8 @@
       "type": "Point",
       "coordinates": [-0.1278, 51.5074]
     },
-    "pricePerDay": 850
+    "pricePerDay": 850,
+    "gender": "male"
   },
   {
     "name": "Rocky",
@@ -310,6 +326,7 @@
       "type": "Point",
       "coordinates": [-122.4194, 37.7749]
     },
-    "pricePerDay": 365
+    "pricePerDay": 365,
+    "gender": "male"
   }
 ]
