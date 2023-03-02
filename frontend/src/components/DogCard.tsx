@@ -1,18 +1,6 @@
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import { fetchDog } from "../../fetch-functions.js/fetchDogs";
+import DogProps from "../types/DogType";
 
-const DogCard = (props) => {
-  const dogResults = useQuery(["dog", props._id], fetchDog);
-
-  if (dogResults.isLoading) {
-    return (
-      <div className="Loading-pane">
-        <h2 className="loader">Loading ... </h2>
-      </div>
-    );
-  }
-
+const DogCard = (props: DogProps) => {
   return (
     <li className="card">
       <div className="card-img">
@@ -34,7 +22,10 @@ const DogCard = (props) => {
         </div>
         <div className="card-data">
           <img src="../img/clock-svgrepo-com.svg" alt="" />
-          <span>{props.age} years old</span>
+          <span>
+            {props.age + " "}
+            {props.age === 1 ? "year" : "years"} old
+          </span>
         </div>
         <div className="card-data">
           <img src="../img/gender-svgrepo-com.svg" alt="" />

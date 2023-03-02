@@ -1,4 +1,8 @@
-export const fetchDog = async ({ queryKey }) => {
+export const fetchDog = async ({
+  queryKey,
+}: {
+  queryKey: [string, number | string];
+}) => {
   const id = queryKey[1];
 
   const apiResponse = await fetch(`http://localhost:3001/api/v1/dogs/${id}`);

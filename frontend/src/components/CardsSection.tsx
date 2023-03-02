@@ -1,10 +1,19 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import DogCard from "./DogCard";
+import DogType from "../types/DogType";
 import { fetchAllDogs } from "../../fetch-functions.js/fetchDogs";
+import FilterBar from "./FilterBar";
 
 const CardsSection = () => {
   const dogsResults = useQuery(["dogList"], fetchAllDogs);
+
+  if (dogsResults.isError) {
+    return (
+      <div>
+        <h2>Error: fetching dogs failed</h2>
+      </div>
+    );
+  }
 
   if (dogsResults.isLoading) {
     return (
@@ -15,13 +24,13 @@ const CardsSection = () => {
   }
 
   const dogs = dogsResults.data.data.dogs;
-  console.log(dogs);
 
   return (
     <section>
+      <FilterBar />
       <ul id="collection-container">
-        {dogs.map((dog) => {
-          return <DogCard {...dog} />;
+        {dogs.map((dog: DogType) => {
+          return <DogCard key={dog._id} {...dog} />;
         })}
       </ul>
     </section>
