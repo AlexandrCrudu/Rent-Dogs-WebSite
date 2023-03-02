@@ -10,7 +10,7 @@
       "Buddy is a very well-behaved dog and listens to commands very well. He's also great with children and other dogs.",
       "Buddy is simply amazing! He's incredibly intelligent and a great companion. Highly recommend renting him!"
     ],
-    "alias": "Buddy the Bouncing Beagle",
+    "alias": "the Bouncing Beagle",
     "pictures": [],
     "gender": "male",
     "location": {
@@ -32,7 +32,7 @@
       "Lucy is a very intelligent dog and can learn new tricks quickly. She's also great with children and other dogs.",
       "Lucy is simply amazing! She's incredibly loyal and will always be by your side. You won't regret renting her!"
     ],
-    "alias": "Lucy the Loyal Shepherd",
+    "alias": "the Loyal Shepherd",
     "pictures": [],
     "location": {
       "type": "Point",
@@ -54,7 +54,7 @@
       "Rocky is very protective of his owner and will make sure they're always safe. He's also great with children and other dogs.",
       "Rocky is simply amazing! He's incredibly loyal and will always be there for you. Highly recommend renting him!"
     ],
-    "alias": "Rocky the Ruff Boxer",
+    "alias": "the Ruff Boxer",
     "pictures": [],
     "location": {
       "type": "Point",
@@ -76,7 +76,7 @@
       "Molly is very intelligent and learns new tricks quickly. She's also great with children and other dogs.",
       "Molly is simply amazing! She's a great companion and will always be by your side. Would definitely rent her again!"
     ],
-    "alias": "Molly the Marvelous Poodle",
+    "alias": "the Marvelous Poodle",
     "pictures": [],
     "location": {
       "type": "Point",
