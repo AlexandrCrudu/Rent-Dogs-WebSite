@@ -1,6 +1,6 @@
-import DogProps from "../types/DogType";
+import { DogPropsType } from "../types/DogTypes";
 
-const DogCard = (props: DogProps) => {
+const DogCard = (props: DogPropsType) => {
   return (
     <li className="card">
       <div className="card-img">

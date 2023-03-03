@@ -1,35 +1,30 @@
 import { useQuery } from "@tanstack/react-query";
 import DogCard from "./DogCard";
-import DogType from "../types/DogType";
-import { fetchAllDogs } from "../../fetch-functions.js/fetchDogs";
+import { DogPropsType } from "../types/DogTypes";
+import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";
 import FilterBar from "./FilterBar";
 
 const CardsSection = () => {
-  const dogsResults = useQuery(["dogList"], fetchAllDogs);
+  const [dogs] = useAllDogs();
 
-  if (dogsResults.isError) {
-    return (
-      <div>
-        <h2>Error: fetching dogs failed</h2>
-      </div>
-    );
-  }
+  const breeds = dogs.map((dog) => dog.breed);
+  const uniqueListOfBreeds = breeds.filter(
+    (value, index) => breeds.indexOf(value) === index
+  );
 
-  if (dogsResults.isLoading) {
-    return (
-      <div className="Loading-pane">
-        <h2 className="loader">Loading ... </h2>
-      </div>
-    );
-  }
-
-  const dogs = dogsResults.data.data.dogs;
+  const countries = dogs.map((dog) => dog.countryCode);
+  const uniqueListOfCountries = countries.filter(
+    (value, index) => countries.indexOf(value) === index
+  );
 
   return (
     <section>
-      <FilterBar />
+      <FilterBar
+        breeds={uniqueListOfBreeds}
+        countries={uniqueListOfCountries}
+      />
       <ul id="collection-container">
-        {dogs.map((dog: DogType) => {
+        {dogs.map((dog: DogPropsType) => {
           return <DogCard key={dog._id} {...dog} />;
         })}
       </ul>

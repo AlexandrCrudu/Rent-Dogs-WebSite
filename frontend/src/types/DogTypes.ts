@@ -1,4 +1,4 @@
-type DogProps = {
+export type DogPropsType = {
   _id: string;
   location: {
     type: "Point";
@@ -14,6 +14,19 @@ type DogProps = {
   age: number;
   gender: "male" | "female";
   pricePerDay: number;
+  __v: 0;
 };
 
-export default DogProps;
+export type AllDogsAPIResType = {
+  status: string;
+  data: {
+    dogs: DogPropsType[];
+  };
+};
+
+export type OneDogApiResType = {
+  status: string;
+  data: {
+    dog: DogPropsType;
+  };
+};
