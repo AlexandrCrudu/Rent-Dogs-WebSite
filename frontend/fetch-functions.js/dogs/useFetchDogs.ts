@@ -2,8 +2,8 @@ import { fetchAllDogs, fetchDog } from "./fetchDogs";
 import { QueryStatus, useQuery } from "@tanstack/react-query";
 import { DogPropsType } from "../../src/types/DogTypes";
 
-export const useAllDogs = () => {
-  const results = useQuery(["dogList"], fetchAllDogs);
+export const useAllDogs = (queryStr: string) => {
+  const results = useQuery(["dogList", queryStr], fetchAllDogs);
   return [results?.data?.data?.dogs ?? [], results.status] as [
     DogPropsType[],
     QueryStatus

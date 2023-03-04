@@ -18,9 +18,13 @@ export const fetchDog: QueryFunction<
 
 export const fetchAllDogs: QueryFunction<
   AllDogsAPIResType,
-  ["dogList"]
+  ["dogList", string]
 > = async ({ queryKey }) => {
-  const apiResponse = await fetch(`http://localhost:3001/api/v1/dogs`);
+  const queryStr = queryKey[1];
+
+  const apiResponse = await fetch(
+    `http://localhost:3001/api/v1/dogs?${queryStr}`
+  );
 
   if (!apiResponse.ok) {
     throw new Error(`fetch not ok`);

@@ -266,10 +266,12 @@ section {
   justify-content: center;
   background-color: #729481;
   width: fit-content;
-  display: flex;
-  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem auto;
   padding: 1rem;
   gap: 1rem;
+  align-items: end;
 }
 
 .filter-wrapper .react-select {
@@ -281,8 +283,10 @@ section {
   margin-bottom: 10px;
 }
 
-.filter-wrapper input {
-  height: 50%;
+.applyFilters-wrapper button {
+  height: 40px;
+  padding: 0 30px;
+  font-size: 1rem;
 }
 
 /* ----------------------------------TABLET---------------------------*/
@@ -345,6 +349,12 @@ section {
       55.1% 2.38%
     );
     max-height: 211px;
+  }
+}
+
+@media (min-width: 695px) {
+  .filter-wrapper {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
