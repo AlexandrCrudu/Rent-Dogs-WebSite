@@ -1,5 +1,3 @@
-
-
 const Mission = () => {
   return (
     <section id="mission">

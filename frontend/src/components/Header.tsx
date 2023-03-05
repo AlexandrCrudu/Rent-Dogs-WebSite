@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,23 +7,23 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <a href="#">
+              <Link to="/">
                 <img src="../img/logo-dog.svg" alt="Dog logo. Click for Home" />
                 <h1>Puppy Share</h1>
                 <img src="../img/logo-dog.svg" alt="Dog logo. Click for Home" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">Dog Collection</a>
+              <Link to="/">Dog Collection</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link to="#">About</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="#">Contact</Link>
             </li>
             <li>
-              <a href="#">Login</a>
+              <Link to="/Login">Login</Link>
             </li>
           </ul>
         </nav>

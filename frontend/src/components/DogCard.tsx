@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { DogPropsType } from "../types/DogTypes";
 
 const DogCard = (props: DogPropsType) => {
@@ -38,7 +39,7 @@ const DogCard = (props: DogPropsType) => {
           <span className="card-footer-text">per day</span>
         </p>
         <p className="card-dog-availability">not available today</p>
-        <a href="card-dog-btn">Details</a>
+        <Link to="card-dog-btn">Details</Link>
       </div>
     </li>
   );

@@ -1,4 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Mission from "./Mission";
+import Header from "./Header";
 import DogCard from "./DogCard";
 import { DogPropsType } from "../types/DogTypes";
 import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";
@@ -19,18 +23,21 @@ const CardsSection = () => {
   }
 
   return (
-    <section className="card-section">
-      <FilterBar
-        breeds={uniqueListOfBreeds}
-        countries={uniqueListOfCountries}
-        setQuery={setQueryString}
-      />
-      <ul id="collection-container">
-        {dogs.map((dog: DogPropsType) => {
-          return <DogCard key={dog._id} {...dog} />;
-        })}
-      </ul>
-    </section>
+    <>
+      <Mission />
+      <section className="card-section">
+        <FilterBar
+          breeds={uniqueListOfBreeds}
+          countries={uniqueListOfCountries}
+          setQuery={setQueryString}
+        />
+        <ul id="collection-container">
+          {dogs.map((dog: DogPropsType) => {
+            return <DogCard key={dog._id} {...dog} />;
+          })}
+        </ul>
+      </section>
+    </>
   );
 };
 
