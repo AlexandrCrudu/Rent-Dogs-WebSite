@@ -3,6 +3,14 @@ import mongoose from "mongoose";
 import dogRouter from "./routes/dogRoutes.js";
 import dotenv from "dotenv";
 import cors from "cors";
+import AppError from "./utils/appError.js";
+import globalErrorHandler from "./controllers/errorController.js";
+
+process.on("unhandledException", (err) => {
+  console.log(err.name, err.message);
+  console.log("UNHANDLED EXCEPTION! Shutting down...");
+  process.exit(1);
+});
 
 dotenv.config({ path: "./config.env" });
 
@@ -21,9 +29,21 @@ app.use(express.json());
 
 app.use("/api/v1/dogs", dogRouter);
 
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalErrorHandler);
+
 // server set up and configs
 const port = process.env.PORT;
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App running on port ${port}`);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.log(err.name, err.message);
+  console.log("UNHANDLED REJECTION! Shutting down...");
+  server.close(() => process.exit(1));
 });

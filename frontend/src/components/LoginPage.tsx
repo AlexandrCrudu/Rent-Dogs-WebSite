@@ -42,6 +42,10 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
               placeholder="username"
               {...register("username", {
                 required: "Fill in before submitting!",
+                minLength: {
+                  value: 2,
+                  message: "Username must contain at least 2 characters",
+                },
               })}
             />
             <p>{errors.username?.message}</p>
