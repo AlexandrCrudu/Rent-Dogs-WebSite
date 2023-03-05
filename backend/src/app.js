@@ -1,8 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-import dogRouter from "./routes/dogRoutes.js";
 import dotenv from "dotenv";
 import cors from "cors";
+
+import dogRouter from "./routes/dogRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 import AppError from "./utils/appError.js";
 import globalErrorHandler from "./controllers/errorController.js";
 
@@ -28,6 +30,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/dogs", dogRouter);
+app.use("/api/v1/users", userRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
