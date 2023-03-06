@@ -4,6 +4,14 @@ import User from "../models/userModel.js";
 import AppError from "../utils/appError.js";
 import catchAsync from "../utils/catchAsync.js";
 
+const cookieOptions = {
+  expires: new Date(
+    // 90 days
+    Date.now() + 90 * 24 * 60 * 60 * 1000
+  ),
+  httpOnly: true,
+};
+
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -11,13 +19,18 @@ const signToken = (id) => {
 };
 
 export const signUp = catchAsync(async (req, res, next) => {
+  console.log(cookieOptions);
   const newUser = await User.create({
     email: req.body.email,
     password: req.body.password,
     username: req.body.username,
+    role: req.body.role,
   });
 
   const token = signToken(newUser._id);
+  newUser.password = undefined;
+
+  res.cookie("jwt", token, cookieOptions);
 
   res.status(201).json({
     status: "success",
@@ -43,6 +56,8 @@ export const login = catchAsync(async (req, res, next) => {
 
   const token = signToken(user._id);
 
+  res.cookie("jwt", token, cookieOptions);
+
   res.status(200).json({
     status: "success",
     token,
@@ -63,6 +78,20 @@ export const protect = catchAsync(async (req, res, next) => {
     );
   }
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
+
+  const user = await User.findById(decoded.id);
+  req.user = user;
   next();
 });
+
+export const restrictTo = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError("You do not have permission to perform this action!", 403)
+      );
+    }
+
+    next();
+  };
+};

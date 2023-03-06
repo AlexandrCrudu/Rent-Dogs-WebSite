@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema({
     required: [true, "Please provide a username!"],
     minLength: 2,
   },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
+  },
 });
 
 userSchema.pre("save", async function (next) {

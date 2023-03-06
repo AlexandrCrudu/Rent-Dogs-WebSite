@@ -136,6 +136,7 @@ function FilterBar({
           options={countryOptions}
           isMulti
           onChange={handleCountryChange}
+          noOptionsMessage={() => "No countries found!"}
         />
       </div>
       <div>

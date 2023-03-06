@@ -35,3 +35,36 @@ export const getDog = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+export const updateDog = catchAsync(async (req, rex, next) => {
+  const dog = await Dog.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!dog) {
+    return next(new AppError(`No document found with id:${req.params.id}`));
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      dog,
+    },
+  });
+});
+
+export const deleteDog = catchAsync(async (req, res, next) => {
+  const dog = await Dog.findByIdAndDelete(req.params.id);
+
+  if (!dog) {
+    return next(new AppError(`No document found with id:${req.params.id}`));
+  }
+
+  res.status(204).json({
+    status: "success",
+    data: {
+      dog,
+    },
+  });
+});
