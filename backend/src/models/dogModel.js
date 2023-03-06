@@ -37,6 +37,7 @@ const dogSchema = new mongoose.Schema({
   },
   location: {
     type: {
+      // GeoJSON
       type: String,
       default: "Point",
       enum: ["Point"],
@@ -51,11 +52,9 @@ const dogSchema = new mongoose.Schema({
     type: String,
     required: [true, "A dog must have a country"],
   },
-  // toJSON: { virtuals: true },
-  // toObject: { virtuals: true },
 });
 
-dogSchema.index({ startLocation: "2dsphere" });
+dogSchema.index({ location: "2dsphere" });
 
 const Dog = mongoose.model("Dog", dogSchema);
 

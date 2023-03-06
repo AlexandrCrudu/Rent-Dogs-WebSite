@@ -4,14 +4,14 @@ import Dog from "../src/models/dogModel.js";
 import dotenv from "dotenv";
 
 dotenv.config({ path: "./config.env" });
-
-const db_URL = process.env.DATABASE.replace(
-  "<password>",
-  process.env.DATABASE_PASSWORD
-);
+// const db_URL = process.env.DATABASE.replace(
+//   "<password>",
+//   process.env.DATABASE_PASSWORD
+// );
+const db_URL = `mongodb+srv://Alex:Sandu2002@rent-dog-cluster.uvjtgue.mongodb.net/dog-rent`;
 mongoose.connect(db_URL).then(() => "DB connection successfull");
 
-const dogs = JSON.parse(fs.readFileSync(`dev-data/dogs.json`));
+const dogs = JSON.parse(fs.readFileSync(`dogs.json`));
 
 const importData = async () => {
   try {
