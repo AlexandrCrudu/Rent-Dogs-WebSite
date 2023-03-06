@@ -36,6 +36,17 @@ export const getDog = catchAsync(async (req, res, next) => {
   });
 });
 
+export const createDog = catchAsync(async (req, res, next) => {
+  const dog = await Dog.create(req.body);
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      dog,
+    },
+  });
+});
+
 export const updateDog = catchAsync(async (req, rex, next) => {
   const dog = await Dog.findByIdAndUpdate(req.params.id, req.body, {
     new: true,

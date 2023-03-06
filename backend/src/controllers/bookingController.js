@@ -28,7 +28,18 @@ export const getUserById = async (req, res, next) => {
   });
 };
 
-export const updateUser = catchAsync(async (req, res, next) => {
+export const createBooking = catchAsync(async (req, res, next) => {
+  const booking = await Booking.create(req.body);
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      booking,
+    },
+  });
+});
+
+export const updateBooking = catchAsync(async (req, res, next) => {
   const booking = await Booking.findByIdAndUpdate(req.params.id, req.body);
 
   if (!booking) {
@@ -43,7 +54,7 @@ export const updateUser = catchAsync(async (req, res, next) => {
   });
 });
 
-export const deleteUser = catchAsync(async (req, res, next) => {
+export const deleteBooking = catchAsync(async (req, res, next) => {
   const booking = await Booking.findByIdAndUpdate(req.params.id, req.body);
 
   if (!booking) {

@@ -28,7 +28,18 @@ export const getUserById = async (req, res, next) => {
   });
 };
 
-export const updateUser = catchAsync(async (req, res, next) => {
+export const createReview = catchAsync(async (req, res, next) => {
+  const review = await Review.create(req.body);
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      review,
+    },
+  });
+});
+
+export const updateReview = catchAsync(async (req, res, next) => {
   const review = await Review.findByIdAndUpdate(req.params.id, req.body);
 
   if (!review) {
@@ -43,7 +54,7 @@ export const updateUser = catchAsync(async (req, res, next) => {
   });
 });
 
-export const deleteUser = catchAsync(async (req, res, next) => {
+export const deleteReview = catchAsync(async (req, res, next) => {
   const review = await Review.findByIdAndUpdate(req.params.id, req.body);
 
   if (!review) {
