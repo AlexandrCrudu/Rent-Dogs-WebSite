@@ -1,15 +1,17 @@
 import express from "express";
+import { protect, restrictTo } from "../controllers/authController.js";
+
 import {
   createBooking,
   deleteBooking,
   getAllBookings,
   updateBooking,
-} from "../controllers/bookingController";
+} from "../controllers/bookingController.js";
 
 const router = express.Router();
 
 router.use(protect);
-router.use(restrictTo("admin"));
+// router.use(restrictTo("admin"));
 
 router.route("/").get(getAllBookings).post(createBooking);
 router

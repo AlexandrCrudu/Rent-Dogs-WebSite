@@ -5,6 +5,9 @@ import cors from "cors";
 
 import dogRouter from "./routes/dogRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import reviewRouter from "./routes/reviewRoutes.js";
+import bookingRouter from "./routes/bookingsRoutes.js";
+
 import AppError from "./utils/appError.js";
 import globalErrorHandler from "./controllers/errorController.js";
 
@@ -31,6 +34,8 @@ app.use(express.json());
 
 app.use("/api/v1/dogs", dogRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/reviews", reviewRouter);
+app.use("/api/v1/bookings", bookingRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

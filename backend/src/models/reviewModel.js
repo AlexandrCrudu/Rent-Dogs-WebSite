@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 const reviewSchema = new mongoose.Schema(
   {
     review: {
@@ -6,7 +8,7 @@ const reviewSchema = new mongoose.Schema(
     },
     rating: {
       type: Number,
-      min: 0,
+      min: 1,
       max: 5,
     },
     createdAt: {
@@ -29,6 +31,16 @@ const reviewSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+reviewSchema.pre(/^find/, function (next) {
+  // "this" points to the current query
+
+  this.populate({
+    path: "user",
+    select: "username email",
+  });
+  next();
+});
 
 const Review = mongoose.model("Review", reviewSchema);
 

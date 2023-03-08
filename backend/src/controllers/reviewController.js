@@ -3,7 +3,10 @@ import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
 export const getAllReviews = async (req, res, next) => {
-  const reviews = await Review.find();
+  let filter = {};
+  if (req.params.dogId) filter = { dog: req.params.dogId };
+
+  const reviews = await Review.find(filter);
 
   res.status(200).json({
     status: "success",
@@ -29,6 +32,9 @@ export const getUserById = async (req, res, next) => {
 };
 
 export const createReview = catchAsync(async (req, res, next) => {
+  if (!req.body.tour) req.body.dog = req.params.dogId;
+  if (!req.body.user) req.body.user = req.user.id;
+
   const review = await Review.create(req.body);
 
   res.status(201).json({

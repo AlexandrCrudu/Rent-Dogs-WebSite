@@ -22,7 +22,7 @@ export const getAllDogs = catchAsync(async (req, res, next) => {
 });
 
 export const getDog = catchAsync(async (req, res, next) => {
-  const dog = await Dog.findById(req.params.id);
+  const dog = await Dog.findById(req.params.id).populate("reviews");
 
   if (!dog) {
     return next(new AppError(`No dog found with id:${req.params.id}`, 404));
