@@ -1,9 +1,12 @@
 import User from "../models/userModel.js";
+import APIFeatures from "../utils/apiFeatures.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
-export const getAllUsers = async (req, res, next) => {
-  const users = await User.find();
+export const getAllUsers = catchAsync(async (req, res, next) => {
+  const features = new APIFeatures(User.find(), req.query).filter().sort();
+
+  const users = await features.query;
 
   res.status(200).json({
     status: "success",
@@ -11,10 +14,18 @@ export const getAllUsers = async (req, res, next) => {
       users,
     },
   });
-};
+});
 
-export const getUserById = async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+export const getUserById = catchAsync(async (req, res, next) => {
+  let filter;
+
+  if (req.originalUrl.includes("/me")) {
+    filter = req.currentUserId;
+  } else {
+    filter = req.params.id;
+  }
+
+  const user = await User.findById(filter);
 
   if (!user) {
     return next(new AppError(`User with id:${req.params.id} not found!`));
@@ -26,7 +37,7 @@ export const getUserById = async (req, res, next) => {
       user,
     },
   });
-};
+});
 
 export const updateUser = catchAsync(async (req, res, next) => {
   const user = await User.findByIdAndUpdate(req.params.id, req.body);
@@ -57,3 +68,8 @@ export const deleteUser = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+export const getMe = (req, res, next) => {
+  req.currentUserId = req.user.id;
+  next();
+};

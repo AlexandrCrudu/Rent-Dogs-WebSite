@@ -2,7 +2,7 @@ import Review from "../models/reviewModel.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
-export const getAllReviews = async (req, res, next) => {
+export const getAllReviews = catchAsync(async (req, res, next) => {
   let filter = {};
   if (req.params.dogId) filter = { dog: req.params.dogId };
 
@@ -14,9 +14,9 @@ export const getAllReviews = async (req, res, next) => {
       reviews,
     },
   });
-};
+});
 
-export const getUserById = async (req, res, next) => {
+export const getUserById = catchAsync(async (req, res, next) => {
   const review = await Review.findById(req.params.id);
 
   if (!review) {
@@ -29,7 +29,7 @@ export const getUserById = async (req, res, next) => {
       review,
     },
   });
-};
+});
 
 export const createReview = catchAsync(async (req, res, next) => {
   if (!req.body.tour) req.body.dog = req.params.dogId;

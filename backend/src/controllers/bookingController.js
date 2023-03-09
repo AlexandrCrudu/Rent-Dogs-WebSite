@@ -2,7 +2,7 @@ import Booking from "../models/bookingModel.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/appError.js";
 
-export const getAllBookings = async (req, res, next) => {
+export const getAllBookings = catchAsync(async (req, res, next) => {
   const bookings = await Booking.find();
 
   res.status(200).json({
@@ -11,9 +11,9 @@ export const getAllBookings = async (req, res, next) => {
       bookings,
     },
   });
-};
+});
 
-export const getUserById = async (req, res, next) => {
+export const getUserById = catchAsync(async (req, res, next) => {
   const booking = await Booking.findById(req.params.id);
 
   if (!booking) {
@@ -26,7 +26,7 @@ export const getUserById = async (req, res, next) => {
       booking,
     },
   });
-};
+});
 
 export const createBooking = catchAsync(async (req, res, next) => {
   const booking = await Booking.create(req.body);
