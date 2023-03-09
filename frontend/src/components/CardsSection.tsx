@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Mission from "./Mission";
-import Header from "./Header";
 import DogCard from "./DogCard";
 import { DogPropsType } from "../types/DogTypes";
 import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";

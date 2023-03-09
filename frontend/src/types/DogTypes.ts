@@ -14,7 +14,6 @@ export type DogPropsType = {
   age: number;
   gender: "male" | "female";
   pricePerDay: number;
-  __v: 0;
 };
 
 export type AllDogsAPIResType = {

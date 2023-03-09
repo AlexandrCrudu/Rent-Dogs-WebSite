@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import JWTContext from "../JWTContext";
 
 const Header = () => {
+  const handleLogout = () => {
+    console.log("logging out...");
+    setJwt("");
+  };
+
+  const [jwt, setJwt] = useContext(JWTContext);
   return (
     <div className="header-wrap">
       <header>
@@ -22,8 +30,15 @@ const Header = () => {
             <li>
               <Link to="#">Contact</Link>
             </li>
+            {jwt ? <Link to="/account">My account</Link> : null}
             <li>
-              <Link to="/Login">Login</Link>
+              {jwt ? (
+                <Link to="/" onClick={handleLogout}>
+                  Logout
+                </Link>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </li>
           </ul>
         </nav>

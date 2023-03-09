@@ -15,7 +15,7 @@ import AppError from "./utils/appError.js";
 import globalErrorHandler from "./controllers/errorController.js";
 
 process.on("unhandledException", (err) => {
-  console.log(err.name, err.message);
+  console.log(err);
   console.log("UNHANDLED EXCEPTION! Shutting down...");
   process.exit(1);
 });
