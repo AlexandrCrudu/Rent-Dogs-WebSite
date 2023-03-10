@@ -10,8 +10,8 @@ export const useAllDogs = (queryStr: string) => {
   ];
 };
 
-export const useOneDog = ({ _id }: { _id: string }) => {
-  const results = useQuery(["dog", _id], fetchDog);
+export const useOneDog = (id: string) => {
+  const results = useQuery(["dog", id], fetchDog);
   return [results?.data?.data?.dog ?? {}, results.status] as [
     DogPropsType,
     QueryStatus

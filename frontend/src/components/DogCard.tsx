@@ -5,12 +5,13 @@ const DogCard = (props: DogPropsType) => {
   return (
     <li className="card">
       <div className="card-img">
-        <img src="../img/dog-test.jpg" alt="happy dog sitting on grass" />
+        <img
+          src={`../img/dogs/${props.name}-hero.jpg`}
+          alt="happy dog sitting on grass"
+        />
       </div>
       <div className="card-body">
-        <h3>
-          {props.name} alias {props.alias}
-        </h3>
+        <h3>{props.name}</h3>
         <div className="card-data">
           <img src="../img/bulldog-svgrepo-com.svg" alt="" />
           <span>{props.breed}</span>
@@ -39,7 +40,7 @@ const DogCard = (props: DogPropsType) => {
           <span className="card-footer-text">per day</span>
         </p>
         <p className="card-dog-availability">not available today</p>
-        <Link to="card-dog-btn">Details</Link>
+        <Link to={`dog-details/${props._id}`}>Details</Link>
       </div>
     </li>
   );

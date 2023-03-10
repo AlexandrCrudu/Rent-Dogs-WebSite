@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import JWTContext from "./JWTContext";
+import DogDetails from "./components/DogDetails";
 import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
 import LoginPage from "./components/LoginPage";
@@ -32,6 +33,7 @@ const App = () => {
               path="/Signup"
               element={<LoginPage isLogin={false} />}
             ></Route>
+            <Route path="/dog-details/:id" element={<DogDetails />}></Route>
           </Routes>
         </JWTContext.Provider>
       </QueryClientProvider>

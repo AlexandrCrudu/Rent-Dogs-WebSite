@@ -1,14 +1,14 @@
 [
   {
-    "name": "Buddy",
+    "name": "Sunny",
     "breed": "Beagle",
     "weight_kg": 14,
     "height_cm": 36,
     "age": 2,
     "reviews": [
-      "Buddy is such a friendly dog! He loves to play and has a lot of energy. Would definitely rent him again!",
-      "Buddy is a very well-behaved dog and listens to commands very well. He's also great with children and other dogs.",
-      "Buddy is simply amazing! He's incredibly intelligent and a great companion. Highly recommend renting him!"
+      "Sunny is such a friendly dog! He loves to play and has a lot of energy. Would definitely rent him again!",
+      "Sunny is a very well-behaved dog and listens to commands very well. He's also great with children and other dogs.",
+      "Sunny is simply amazing! He's incredibly intelligent and a great companion. Highly recommend renting him!"
     ],
     "alias": "the Bouncing Beagle",
     "pictures": [],
@@ -22,7 +22,7 @@
     "pricePerDay": 55
   },
   {
-    "name": "Lucy",
+    "name": "Cindy",
     "breed": "Australian Shepherd",
     "weight_kg": 21,
     "height_cm": 46,
@@ -109,15 +109,15 @@
     "gender": "male"
   },
   {
-    "name": "Daisy",
+    "name": "Stella",
     "breed": "Labrador Retriever",
     "weight_kg": 29,
     "height_cm": 55,
     "age": 2,
     "alias": "The Wigglebutt",
     "reviews": [
-      "Daisy was amazing! So obedient and well-behaved. We had a wonderful time with her and would definitely rent her again!",
-      "We rented Daisy for a weekend and had an absolute blast! She was so much fun and brought so much joy to our lives. Highly recommend!"
+      "Stella was amazing! So obedient and well-behaved. We had a wonderful time with her and would definitely rent her again!",
+      "We rented Stella for a weekend and had an absolute blast! She was so much fun and brought so much joy to our lives. Highly recommend!"
     ],
     "pictures": [],
     "location": {
@@ -172,28 +172,6 @@
     "pricePerDay": 250,
     "gender": "female"
   },
-  {
-    "name": "Luna",
-    "breed": "Golden Retriever",
-    "weight_kg": 27,
-    "height_cm": 56,
-    "age": 2,
-    "alias": "The Cuddler",
-    "reviews": [
-      "Luna is the most affectionate dog I have ever met! She loves to cuddle and be close to you at all times. She also has a playful side and loves to run around and play catch. I highly recommend renting Luna for a day filled with love and fun!",
-      "I had such a great time renting Luna! She is such a happy and friendly dog, and she has the most beautiful coat of fur. She also loves to go on walks and explore new places. I highly recommend renting Luna for a day filled with adventure and excitement!",
-      "Luna is such a joy to be around! She has a great personality and is always up for a game of fetch or a walk around the park. She is also very obedient and easy to take care of. I highly recommend renting Luna for a day filled with fun and happiness!"
-    ],
-    "pictures": [],
-    "location": {
-      "type": "Point",
-      "coordinates": [-74.006, 40.7128]
-    },
-    "city": "New York",
-    "countryCode": "US",
-    "pricePerDay": 299,
-    "gender": "female"
-  },
 
   {
     "name": "Biscuit",
@@ -217,15 +195,15 @@
     "gender": "female"
   },
   {
-    "name": "Cooper",
-    "breed": "Golden Retriever",
+    "name": "Pharaoh",
+    "breed": "Doberman",
     "weight_kg": 29.5,
     "height_cm": 61,
     "age": 2,
     "alias": "The Snugglepup",
     "reviews": [
-      "Cooper was the best cuddle buddy. He was so warm and affectionate, and loved to snuggle up on the couch. Highly recommend!",
-      "Cooper is such a gentle giant. He made me feel safe and protected, and was always up for a game of catch."
+      "Pharaoh was the best cuddle buddy. He was so warm and affectionate, and loved to snuggle up on the couch. Highly recommend!",
+      "Pharaoh is such a gentle giant. He made me feel safe and protected, and was always up for a game of catch."
     ],
     "pictures": [],
     "location": {
@@ -260,7 +238,7 @@
   },
   {
     "name": "Bailey",
-    "breed": "Poodle",
+    "breed": "Husky",
     "weight_kg": 12.5,
     "height_cm": 38,
     "age": 4,
@@ -340,27 +318,6 @@
     "city": "London",
     "countryCode": "UK",
     "pricePerDay": 850,
-    "gender": "male"
-  },
-  {
-    "name": "Rocky",
-    "breed": "Boxer",
-    "weight_kg": 30,
-    "height_cm": 60,
-    "age": 3,
-    "alias": "The Fighter",
-    "reviews": [
-      "Rocky was such a strong and playful dog! He loved to roughhouse and play tug-of-war. We had a great time with him.",
-      "Rocky was the perfect dog for our family vacation. He was so well-behaved and obedient, and he loved to go on walks with us. We miss him already!"
-    ],
-    "pictures": [],
-    "location": {
-      "type": "Point",
-      "coordinates": [-122.4194, 37.7749]
-    },
-    "city": "San Franciso",
-    "countryCode": "US",
-    "pricePerDay": 365,
     "gender": "male"
   }
 ]

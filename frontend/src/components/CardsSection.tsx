@@ -22,13 +22,12 @@ const CardsSection = () => {
 
   return (
     <>
-      <Mission />
+      <FilterBar
+        breeds={uniqueListOfBreeds}
+        countries={uniqueListOfCountries}
+        setQuery={setQueryString}
+      />
       <section className="card-section">
-        <FilterBar
-          breeds={uniqueListOfBreeds}
-          countries={uniqueListOfCountries}
-          setQuery={setQueryString}
-        />
         <ul id="collection-container">
           {dogs.map((dog: DogPropsType) => {
             return <DogCard key={dog._id} {...dog} />;
