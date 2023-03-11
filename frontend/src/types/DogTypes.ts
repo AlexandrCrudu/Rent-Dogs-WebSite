@@ -6,12 +6,13 @@ export type DogPropsType = {
   };
   name: string;
   weight_kg: number;
-  height_kg: number;
+  height_cm: number;
   alias: string;
   breed: string;
   city: string;
   countryCode: string;
   age: number;
+  description: string;
   gender: "male" | "female";
   pricePerDay: number;
 };

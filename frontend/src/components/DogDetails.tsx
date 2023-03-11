@@ -22,29 +22,42 @@ const DogDetails = () => {
         </div>
       </section>
       <section className="details-section details-information">
-        <div>
-          <h3>{dog.name}'s Profile</h3>
-          <p>
-            <span>Breed:</span> {dog.breed}
-          </p>
-          <p>
-            <span>Gender:</span> {dog.gender}
-          </p>
-          <p>
-            <span>Age:</span> {dog.age}
-          </p>
-          <p>
-            <span>Weight:</span> {dog.weight_kg}
-          </p>
-          <p>
-            <span>Height:</span> {dog.height_kg}
-          </p>
-          <p>
-            <span>Country:</span> {dog.countryCode}
-          </p>
-          <p>
-            <span>City:</span> {dog.city}
-          </p>
+        <h3 className="details-title-profile">{dog.name}'s Profile</h3>
+        <div className="details-information-wrapper">
+          <div className="details-section-div">
+            <div className="details-profile">
+              <hr />
+              <div className="details-bio">
+                <div>
+                  <span>Breed - </span> {dog.breed}
+                </div>
+                <div>
+                  <span>Gender - </span> {dog.gender}
+                </div>
+                <div>
+                  <span>Age - </span> {dog.age} {dog.age > 1 ? "years" : "year"}{" "}
+                  old
+                </div>
+                <div>
+                  <span>Weight - </span> {dog.weight_kg} kg
+                </div>
+                <div>
+                  <span>Height - </span> {dog.height_cm} cm
+                </div>
+                <div>
+                  <span>City - </span> {dog.city}
+                </div>
+                <div>
+                  <span>Country - </span> {dog.countryCode}
+                </div>
+              </div>
+              <hr />
+            </div>
+
+            <div className="details-summary">
+              <p>{dog.description}</p>
+            </div>
+          </div>
         </div>
       </section>
       <section className="details-section details-map">

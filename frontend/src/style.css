@@ -409,8 +409,65 @@ section {
   height: 100%;
 }
 
+.details-information-wrapper {
+  max-width: 100%;
+  color: white;
+  margin: 0 auto;
+}
+
+.details-bio {
+  /* margin-top: 2.2rem; */
+  /* border: 1px solid red; */
+  width: fit-content;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  line-height: 2.5rem;
+}
+
+.details-title-profile {
+  padding-top: 2rem;
+}
+
+.details-profile {
+  /* border: 1px solid yellow; */
+  /* text-align: center; */
+  flex-basis: 48%;
+}
+
 .details-information {
+  max-width: none;
+  background-color: #6499df;
+}
+
+.details-section-div {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.details-summary {
+  white-space: normal;
+  flex-basis: 48%;
+  overflow-wrap: break-word;
+  color: White;
+  /* border: 1px solid black; */
+  margin: 2rem;
+  margin-top: 1rem;
+}
+
+.details-summary p {
+  font-size: 1.2rem;
+  line-height: 2.5rem;
   text-align: center;
+  padding-bottom: 2rem;
+}
+
+.details-bio div {
+  display: inline;
+  margin: 2rem;
+}
+
+.details-bio span {
+  font-weight: bold;
 }
 
 /* ----------------------------------TABLET---------------------------*/
