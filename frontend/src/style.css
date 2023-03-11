@@ -416,12 +416,10 @@ section {
 }
 
 .details-bio {
-  /* margin-top: 2.2rem; */
-  /* border: 1px solid red; */
   width: fit-content;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0 auto;
-  line-height: 2.5rem;
+  line-height: 2rem;
 }
 
 .details-title-profile {
@@ -436,33 +434,33 @@ section {
 
 .details-information {
   max-width: none;
-  background-color: #6499df;
+  /* background-color: #6499df; */
+  background-color: #729481;
 }
 
 .details-section-div {
-  max-width: 1500px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .details-summary {
   white-space: normal;
-  flex-basis: 48%;
   overflow-wrap: break-word;
+  max-width: 1300px;
   color: White;
-  /* border: 1px solid black; */
-  margin: 2rem;
+  margin: 2rem auto;
   margin-top: 1rem;
 }
 
 .details-summary p {
-  font-size: 1.2rem;
-  line-height: 2.5rem;
+  font-size: 1rem;
+  line-height: 2.2rem;
   text-align: center;
   padding-bottom: 2rem;
 }
 
 .details-bio div {
-  display: inline;
+  display: block;
   margin: 2rem;
 }
 
@@ -470,6 +468,17 @@ section {
   font-weight: bold;
 }
 
+#map {
+  height: 500px;
+  width: 65%;
+  margin: 0 auto;
+  border: 7px solid #729481;
+  border-radius: 10px;
+}
+
+.details-map {
+  max-width: 100%;
+}
 /* ----------------------------------TABLET---------------------------*/
 
 @media (min-width: 550px) {
@@ -478,6 +487,10 @@ section {
     flex-flow: row wrap;
     justify-content: center;
     gap: 1%;
+  }
+
+  .details-bio div {
+    display: inline;
   }
 
   .card {
@@ -556,5 +569,31 @@ section {
 
   nav li:last-child {
     margin-left: 4rem;
+  }
+
+  .details-summary p {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .details-bio {
+    width: fit-content;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .details-summary p {
+    font-size: 1.1rem;
+    line-height: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .details-bio {
+    width: fit-content;
+    font-size: 1rem;
+    line-height: 2.5rem;
   }
 }

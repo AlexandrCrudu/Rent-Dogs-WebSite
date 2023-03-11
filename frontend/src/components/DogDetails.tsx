@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
+import Map from "./Map";
 
 const DogDetails = () => {
   const { id } = useParams();
   const [dog] = useOneDog(id as string);
+  console.log(dog);
+
   return (
     <article>
       <section className="details-section details-header">
@@ -61,7 +64,15 @@ const DogDetails = () => {
         </div>
       </section>
       <section className="details-section details-map">
-        <div id="map"></div>
+        <h3>{dog.name}'s location</h3>
+        <div>
+          {dog.location && (
+            <Map
+              lat={dog.location.coordinates[1]}
+              lng={dog.location.coordinates[0]}
+            />
+          )}
+        </div>
       </section>
       <section className="details-section details-reviews">
         <div className="reviews-wrapper">
