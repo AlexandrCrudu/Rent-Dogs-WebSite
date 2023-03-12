@@ -1,3 +1,5 @@
+import { ReviewType } from "./ReviewTypes";
+
 export type DogPropsType = {
   _id: string;
   location: {
@@ -17,6 +19,10 @@ export type DogPropsType = {
   pricePerDay: number;
 };
 
+export type DogPropsTypeWithReviews = DogPropsType & {
+  reviews: ReviewType[];
+};
+
 export type AllDogsAPIResType = {
   status: string;
   data: {
@@ -24,9 +30,13 @@ export type AllDogsAPIResType = {
   };
 };
 
+type OneDogWithReviews = DogPropsType & {
+  reviews: ReviewType[];
+};
+
 export type OneDogApiResType = {
   status: string;
   data: {
-    dog: DogPropsType;
+    dog: OneDogWithReviews;
   };
 };

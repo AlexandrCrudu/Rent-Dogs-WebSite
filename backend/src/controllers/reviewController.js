@@ -32,7 +32,7 @@ export const getUserById = catchAsync(async (req, res, next) => {
 });
 
 export const createReview = catchAsync(async (req, res, next) => {
-  if (!req.body.tour) req.body.dog = req.params.dogId;
+  if (!req.body.dog) req.body.dog = req.params.dogId;
   if (!req.body.user) req.body.user = req.user.id;
 
   const review = await Review.create(req.body);

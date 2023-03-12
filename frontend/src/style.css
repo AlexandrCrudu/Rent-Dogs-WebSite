@@ -479,6 +479,15 @@ section {
 .details-map {
   max-width: 100%;
 }
+
+.details-reviews {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.review {
+  flex-basis: 31, 5%;
+}
 /* ----------------------------------TABLET---------------------------*/
 
 @media (min-width: 550px) {

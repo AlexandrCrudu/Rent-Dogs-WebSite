@@ -4,8 +4,11 @@ import Map from "./Map";
 
 const DogDetails = () => {
   const { id } = useParams();
-  const [dog] = useOneDog(id as string);
-  console.log(dog);
+  const [dog, status] = useOneDog(id as string);
+
+  if (status === "success") {
+    console.log(dog.reviews);
+  }
 
   return (
     <article>
@@ -66,7 +69,9 @@ const DogDetails = () => {
       <section className="details-section details-map">
         <h3>{dog.name}'s location</h3>
         <div>
-          {dog.location && (
+          {status === "loading" ? (
+            <div>Loading ... </div>
+          ) : (
             <Map
               lat={dog.location.coordinates[1]}
               lng={dog.location.coordinates[0]}

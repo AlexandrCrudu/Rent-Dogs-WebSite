@@ -31,3 +31,9 @@ export type LoginAPIResType = {
   status: string;
   token: string;
 };
+
+export type UserType = {
+  _id: string;
+  email: string;
+  username: string;
+};
