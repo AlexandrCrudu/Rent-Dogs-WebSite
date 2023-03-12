@@ -8,6 +8,7 @@ import DogDetails from "./components/DogDetails";
 import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
 import LoginPage from "./components/LoginPage";
+import Footer from "./components/footer";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,7 @@ const App = () => {
             ></Route>
             <Route path="/dog-details/:id" element={<DogDetails />}></Route>
           </Routes>
+          <Footer />
         </JWTContext.Provider>
       </QueryClientProvider>
     </BrowserRouter>

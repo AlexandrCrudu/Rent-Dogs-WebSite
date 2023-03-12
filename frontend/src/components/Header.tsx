@@ -27,10 +27,12 @@ const Header = () => {
             <li>
               <Link to="#">About</Link>
             </li>
-            <li>
-              <Link to="#">Contact</Link>
-            </li>
-            {jwt ? <Link to="/account">My account</Link> : null}
+            {jwt ? (
+              <li>
+                {" "}
+                <Link to="/account">My account</Link>{" "}
+              </li>
+            ) : null}
             <li>
               {jwt ? (
                 <Link to="/" onClick={handleLogout}>

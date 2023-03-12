@@ -7,12 +7,12 @@ export type SignUserPropsType = LoginUserPropsType & {
   username: string;
 };
 
-export type SignUserAPIErrorType = {
-  status: "error";
+type SignUserAPIErrorType = {
+  status: "error" | "fail";
   message: string;
 };
 
-export type SignUserApiSuccessType = {
+type SignUserApiSuccessType = {
   status: "success";
   token: string;
   data: {
@@ -27,10 +27,17 @@ export type SignUserApiSuccessType = {
 
 export type SignUpAPIResType = SignUserAPIErrorType | SignUserApiSuccessType;
 
-export type LoginAPIResType = {
-  status: string;
+type LoginAPISuccessResType = {
+  status: "success";
   token: string;
 };
+
+type LoginAPIErrorResType = {
+  status: "fail";
+  message: string;
+};
+
+export type LoginApiResType = LoginAPISuccessResType | LoginAPIErrorResType;
 
 export type UserType = {
   _id: string;

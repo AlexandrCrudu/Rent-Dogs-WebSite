@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Mission from "./Mission";
 import DogCard from "./DogCard";
 import { DogPropsType } from "../types/DogTypes";
 import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";

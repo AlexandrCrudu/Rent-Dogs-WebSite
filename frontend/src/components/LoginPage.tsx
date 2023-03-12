@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import JWTContext from "../JWTContext";
 import { signup, login } from "../../fetch-functions.js/users/auth";
-import { LoginAPIResType, SignUpAPIResType } from "../types/UserTypes";
+import { LoginApiResType, SignUpAPIResType } from "../types/UserTypes";
 
 type Inputs = {
   email: string;
@@ -38,11 +38,35 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
     }
   }, [email, errors.email]);
 
-  const handleLogin: SubmitHandler<Inputs> = async (data) => {
+  const handleSignup: SubmitHandler<Inputs> = async (data) => {
     const res: SignUpAPIResType = await signup(data);
+    console.log(res);
     if (res.status === "error") {
       if (res.message.includes("duplicate key")) {
         setError("Email taken!");
+      }
+    } else if (res.status === "fail") {
+      console.log("aaaa");
+      if (res.message === "Incorrect email or password") {
+        setError(res.message);
+      }
+    } else if (res.status === "success") {
+      console.log(res);
+      setJwt(res.token);
+      navigate("/");
+    }
+  };
+
+  const handleLogin: SubmitHandler<Inputs> = async (data) => {
+    const body = {
+      email: data.email,
+      password: data.password,
+    };
+
+    const res: LoginApiResType = await login(body);
+    if (res.status === "fail") {
+      if (res.message === "Incorrect email or password") {
+        setError(res.message);
       }
     } else {
       setJwt(res.token);
@@ -50,22 +74,12 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
     }
   };
 
-  const handleSignup: SubmitHandler<Inputs> = async (data) => {
-    const body = {
-      email: data.email,
-      password: data.password,
-    };
-    const res: LoginAPIResType = await login(body);
-    setJwt(res.token);
-    navigate("/");
-  };
-
   return (
     <div className="login-form-wrapper">
       <form
         className="login-form"
         onSubmit={
-          isLogin ? handleSubmit(handleSignup) : handleSubmit(handleLogin)
+          isLogin ? handleSubmit(handleLogin) : handleSubmit(handleSignup)
         }
       >
         <div className="login-form-div">
@@ -77,7 +91,7 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
             placeholder="email"
             {...register("email", { required: "Fill in before submitting!" })}
           />
-          {error ? <p>Email already taken!</p> : ""}
+          {error ? <p>{error}</p> : ""}
           <p>{errors.email?.message}</p>
         </div>
         {!isLogin && (

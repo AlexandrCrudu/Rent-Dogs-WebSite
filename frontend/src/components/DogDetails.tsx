@@ -1,17 +1,21 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
+import { useContext } from "react";
+
+import JWTContext from "../JWTContext";
 import ReviewCard from "./ReviewCard";
 import Map from "./Map";
 
 const DogDetails = () => {
   const { id } = useParams();
   const [dog, status] = useOneDog(id as string);
+  const [jwt, setJwt] = useContext(JWTContext);
 
   if (status === "loading") {
     return <div>Loading ... </div>;
   }
 
-  // we'll render the 3 three reviews only
+  // we'll render the first three reviews only
   const reviews = dog.reviews.slice(0, 3);
 
   return (
@@ -32,7 +36,7 @@ const DogDetails = () => {
         </div>
       </section>
       <section className="details-section details-information">
-        <h3 className="details-title-profile">{dog.name}'s Profile</h3>
+        <h3 className="details-title-profile">Profile</h3>
         <div className="details-information-wrapper">
           <div className="details-section-div">
             <div className="details-profile">
@@ -57,9 +61,9 @@ const DogDetails = () => {
                 <div>
                   <span>City - </span> {dog.city}
                 </div>
-                <div>
+                {/* <div>
                   <span>Country - </span> {dog.countryCode}
-                </div>
+                </div> */}
               </div>
               <hr />
             </div>
@@ -71,7 +75,7 @@ const DogDetails = () => {
         </div>
       </section>
       <section className="details-section details-map">
-        <h3>{dog.name}'s Location</h3>
+        <h3>Location</h3>
         <div>
           <Map
             lat={dog.location.coordinates[1]}
@@ -87,17 +91,25 @@ const DogDetails = () => {
           })}
         </div>
       </section>
-      <section className="details-section details-advert">
+      <section className="details-section details-advert-section">
         <div className="advert">
           <div className="call-to-action">
-            <h3>what are you waiting for?</h3>
+            <h4>what are you waiting for?</h4>
             <p>
-              Ready to add some joy to your life? Rent a furry friend today and
-              experience the unconditional love of a dog! Woof woof!
+              Rent a furry friend today and experience the unconditional love of
+              a dog! Woof woof!
             </p>
           </div>
-          <div>
-            <button>Log in to rent {`${dog.name}`}</button>
+          <div className="button-advert">
+            {jwt ? (
+              <Link className="primary-button" to="/">
+                {`Rent ${dog.name} now`}
+              </Link>
+            ) : (
+              <Link className="primary-button" to="/login">
+                Log in to rent {`${dog.name}`}
+              </Link>
+            )}
           </div>
         </div>
       </section>
