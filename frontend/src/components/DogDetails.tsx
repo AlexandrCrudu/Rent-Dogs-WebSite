@@ -1,14 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
+import ReviewCard from "./ReviewCard";
 import Map from "./Map";
 
 const DogDetails = () => {
   const { id } = useParams();
   const [dog, status] = useOneDog(id as string);
 
-  if (status === "success") {
-    console.log(dog.reviews);
+  if (status === "loading") {
+    return <div>Loading ... </div>;
   }
+
+  // we'll render the 3 three reviews only
+  const reviews = dog.reviews.slice(0, 3);
 
   return (
     <article>
@@ -67,27 +71,35 @@ const DogDetails = () => {
         </div>
       </section>
       <section className="details-section details-map">
-        <h3>{dog.name}'s location</h3>
+        <h3>{dog.name}'s Location</h3>
         <div>
-          {status === "loading" ? (
-            <div>Loading ... </div>
-          ) : (
-            <Map
-              lat={dog.location.coordinates[1]}
-              lng={dog.location.coordinates[0]}
-            />
-          )}
+          <Map
+            lat={dog.location.coordinates[1]}
+            lng={dog.location.coordinates[0]}
+          />
         </div>
       </section>
       <section className="details-section details-reviews">
+        <h3 className="details-title-profile">Reviews</h3>
         <div className="reviews-wrapper">
-          <div className="review"></div>
-          <div className="review"></div>
-          <div className="review"></div>
+          {reviews.map((review) => {
+            return <ReviewCard key={review.id} review={review} />;
+          })}
         </div>
       </section>
       <section className="details-section details-advert">
-        <div className="advert"></div>
+        <div className="advert">
+          <div className="call-to-action">
+            <h3>what are you waiting for?</h3>
+            <p>
+              Ready to add some joy to your life? Rent a furry friend today and
+              experience the unconditional love of a dog! Woof woof!
+            </p>
+          </div>
+          <div>
+            <button>Log in to rent {`${dog.name}`}</button>
+          </div>
+        </div>
       </section>
     </article>
   );
