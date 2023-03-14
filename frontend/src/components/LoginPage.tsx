@@ -33,20 +33,18 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
   const email = watch("email");
 
   useEffect(() => {
-    if (email && !errors.email && error) {
+    if (email && error) {
       setError("");
     }
-  }, [email, errors.email]);
+  }, [email]);
 
   const handleSignup: SubmitHandler<Inputs> = async (data) => {
     const res: SignUpAPIResType = await signup(data);
-    console.log(res);
     if (res.status === "error") {
       if (res.message.includes("duplicate key")) {
         setError("Email taken!");
       }
     } else if (res.status === "fail") {
-      console.log("aaaa");
       if (res.message === "Incorrect email or password") {
         setError(res.message);
       }

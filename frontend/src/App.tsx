@@ -8,7 +8,8 @@ import DogDetails from "./components/DogDetails";
 import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
 import LoginPage from "./components/LoginPage";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
+import { ProductDisplay } from "./components/Payment";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,8 @@ const App = () => {
               element={<LoginPage isLogin={false} />}
             ></Route>
             <Route path="/dog-details/:id" element={<DogDetails />}></Route>
+            <Route path="/payment" element={<ProductDisplay />}></Route>
+            <Route path="/create-checkout-session"></Route>
           </Routes>
           <Footer />
         </JWTContext.Provider>

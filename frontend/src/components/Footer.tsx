@@ -3,7 +3,7 @@ const Footer = () => {
     <footer>
       <div className="footer-wrapper">
         <div className="footer-title footer-section">
-          <h4>Contact</h4>
+          <h4>Contact Us</h4>
         </div>
         <div className="footer-contact footer-section">
           <span>puppy-share@gmail.com</span>

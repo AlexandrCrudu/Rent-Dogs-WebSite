@@ -102,7 +102,7 @@ const DogDetails = () => {
           </div>
           <div className="button-advert">
             {jwt ? (
-              <Link className="primary-button" to="/">
+              <Link className="primary-button" to="/payment">
                 {`Rent ${dog.name} now`}
               </Link>
             ) : (

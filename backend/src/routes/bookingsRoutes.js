@@ -6,12 +6,15 @@ import {
   deleteBooking,
   getAllBookings,
   updateBooking,
+  createCheckoutSession,
 } from "../controllers/bookingController.js";
 
 const router = express.Router();
 
 router.use(protect);
 // router.use(restrictTo("admin"));
+
+router.post("/create-checkout-session/:dogId", createCheckoutSession);
 
 router.route("/").get(getAllBookings).post(createBooking);
 router
