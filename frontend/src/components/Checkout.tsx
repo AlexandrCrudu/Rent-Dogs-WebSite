@@ -1,31 +1,44 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState } from "react";
 import { DogPropsType } from "../types/DogTypes";
 import { loadStripe } from "@stripe/stripe-js";
 import JWTContext from "../JWTContext";
 import { useContext } from "react";
+import ReactDropdown from "react-dropdown";
+import { Option } from "react-dropdown";
+import "react-dropdown/style.css";
+import getMe from "../../fetch-functions.js/users/getMe";
 
 const stripePromise = loadStripe(
   "pk_test_51MlGwQEbCwvIHv2DRAZuYHQAjlZJK37ZB2U7MHfUBZvI3HqwrUd4GHSfbSP72ZSqGZLYHpIqQCGGYHX10yJ9ZOWf00YZRyiu1H"
 );
 
-export const ProductDisplay = () => {
+const Checkout = ({ dog }: { dog: DogPropsType }) => {
   const [numberOfDays, setNumberOfDays] = useState(1);
   const [jwt, setJwt] = useContext(JWTContext);
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setNumberOfDays(Number(event.target.value));
+  const handleInput = (option: Option) => {
+    setNumberOfDays(Number(option.value));
   };
 
   const handleCheckoutSubmit = async () => {
-    console.log(jwt);
     try {
       const stripe = await stripePromise;
+      const userId = (await getMe()).data.user._id;
+      console.log(await getMe());
+
       const res = await fetch(
-        `http://localhost:3001/api/v1/bookings/create-checkout-session/640ca0b19cdade9ec09af4fd`,
+        `http://localhost:3001/api/v1/bookings/create-checkout-session/${dog._id}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
+
+            successUrlStripe: `http://localhost:5173/payment-confirmation?transaction=true&dog=${
+              dog._id
+            }&user=${userId}&price=${dog.pricePerDay * numberOfDays}`,
+
+            failUrlStripe:
+              "http://localhost:5173/payment-confirmation?transaction=false",
           },
           body: JSON.stringify({ quantity: numberOfDays }),
         }
@@ -33,7 +46,6 @@ export const ProductDisplay = () => {
 
       const jsonRes = await res.json();
       const session = jsonRes.session;
-      console.log(jsonRes);
       await stripe?.redirectToCheckout({
         sessionId: session.id,
       });
@@ -42,16 +54,32 @@ export const ProductDisplay = () => {
     }
   };
 
+  const options = ["1", "2", "3", "4", "5"];
+
   return (
-    <section>
+    <section className="checkout-section">
       <div className="checkout-product">
-        {/* <img src={`${dog.name}-hero.jpg`} alt="Image of Dog" /> */}
-        <div className="description">
-          <h3>Checkout</h3>
-          <input type="number" defaultValue={1} onChange={handleInput} />
+        <h3>checkout</h3>
+        <div className="checkout-card">
+          <img
+            className="checkout-img"
+            src={`../img/dogs/${dog.name}-hero.jpg`}
+            alt="Image of Dog"
+          />
+          <p>Nr of days:</p>
+          <ReactDropdown
+            className="checkout-dropdown"
+            options={options}
+            value={options[0]}
+            onChange={handleInput}
+          />
+          <div className="checkout-btn-wrapper">
+            <a className="primary-button" onClick={handleCheckoutSubmit}>
+              Pay now
+            </a>
+          </div>
         </div>
       </div>
-      <button onClick={handleCheckoutSubmit}>Checkout</button>
     </section>
   );
 };
@@ -82,3 +110,5 @@ const Message = ({ message }: { message: string }) => (
 
 //   return message ? <Message message={message} /> : <ProductDisplay  />;
 // }
+
+export default Checkout;

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  width: 100%;
 }
 
 *,
@@ -18,6 +19,8 @@ body {
 
 #root {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* header & navbar*/
@@ -591,10 +594,60 @@ section {
 
 footer {
   background-color: #729481;
+  margin-top: auto;
 }
 
 .card-section {
   margin-bottom: 5rem;
+}
+
+.checkout-img {
+  max-height: 14rem;
+  border-radius: 1rem;
+  border: 4px solid #5f7a6b;
+}
+
+.checkout-product {
+  background-color: #729481;
+  border-radius: 1rem;
+  padding: 2rem 4.5rem;
+  margin: 5rem;
+}
+
+.checkout-product h3 {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 400;
+  font-size: 2rem;
+  font-family: "Oxygen Mono";
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.checkout-card p {
+  margin: 1rem 0 0.5rem 0;
+  color: white;
+}
+
+.checkout-btn-wrapper {
+  text-align: center;
+}
+
+.confirmation-section {
+  text-align: center;
+  margin-top: 5rem;
+  color: white;
+}
+
+.confirmation-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.confirmation-section p {
+  font-size: 1.2rem;
 }
 
 /* ----------------------------------TABLET---------------------------*/

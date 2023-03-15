@@ -5,8 +5,13 @@ import { useContext } from "react";
 import JWTContext from "../JWTContext";
 import ReviewCard from "./ReviewCard";
 import Map from "./Map";
+import { DogPropsType } from "../types/DogTypes";
 
-const DogDetails = () => {
+const DogDetails = ({
+  setDog,
+}: {
+  setDog: React.Dispatch<React.SetStateAction<DogPropsType>>;
+}) => {
   const { id } = useParams();
   const [dog, status] = useOneDog(id as string);
   const [jwt, setJwt] = useContext(JWTContext);
@@ -15,6 +20,7 @@ const DogDetails = () => {
     return <div>Loading ... </div>;
   }
 
+  setDog(dog);
   // we'll render the first three reviews only
   const reviews = dog.reviews.slice(0, 3);
 
@@ -102,8 +108,8 @@ const DogDetails = () => {
           </div>
           <div className="button-advert">
             {jwt ? (
-              <Link className="primary-button" to="/payment">
-                {`Rent ${dog.name} now`}
+              <Link className="primary-button" to={`/pre-checkout/${dog._id}`}>
+                Go To Checkout
               </Link>
             ) : (
               <Link className="primary-button" to="/login">

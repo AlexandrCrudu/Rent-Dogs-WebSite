@@ -8,16 +8,12 @@ import {
   getDog,
   updateDog,
 } from "../controllers/dogController.js";
-import { createBookingCheckout } from "../controllers/bookingController.js";
 
 const router = express.Router();
 
 router.use("/:dogId/reviews", reviewRouter);
 
-router
-  .route("/")
-  .get(createBookingCheckout, getAllDogs)
-  .post(protect, restrictTo("admin"), createDog);
+router.route("/").get(getAllDogs).post(protect, restrictTo("admin"), createDog);
 router
   .route("/:id")
   .get(getDog)

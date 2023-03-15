@@ -15,11 +15,11 @@ export const createCheckoutSession = async (req, res) => {
     payment_method_types: ["card"],
 
     //${req.protocol}://${req.get("host")}
-    success_url: `${req.headers.referer}?dog=${dog}&user=${req.user.id}&price=${
-      dog.pricePerDay * req.params.quantity
-    }`,
-
-    cancel_url: `${req.protocol}://${req.get("host")}/`,
+    // success_url: `${req.headers.referer}?dog=${dog}&user=${req.user.id}&price=${
+    //   dog.pricePerDay * req.params.quantity
+    // }`,
+    success_url: req.headers.successurlstripe,
+    cancel_url: req.headers.failurlstripe,
     customer_email: req.user.email,
     client_reference_id: req.params.dogId,
     line_items: [

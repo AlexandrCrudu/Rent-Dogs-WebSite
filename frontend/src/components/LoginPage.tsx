@@ -51,6 +51,8 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
     } else if (res.status === "success") {
       console.log(res);
       setJwt(res.token);
+      window.localStorage.setItem("token", res.token);
+      console.log(window.localStorage);
       navigate("/");
     }
   };
@@ -68,6 +70,7 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
       }
     } else {
       setJwt(res.token);
+      window.localStorage.setItem("token", res.token);
       navigate("/");
     }
   };

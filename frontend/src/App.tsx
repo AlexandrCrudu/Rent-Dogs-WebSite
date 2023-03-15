@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -9,7 +9,9 @@ import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
 import LoginPage from "./components/LoginPage";
 import Footer from "./components/Footer";
-import { ProductDisplay } from "./components/Payment";
+import Checkout from "./components/Checkout";
+import PaymentConfirmation from "./components/PaymentConfirmation";
+import { DogPropsType } from "./types/DogTypes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,7 +23,15 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  const [dog, setDog] = useState({} as DogPropsType);
   const jwt = useState("");
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+
+    if (token) {
+      jwt[1](token);
+    }
+  });
 
   return (
     <BrowserRouter>
@@ -35,9 +45,18 @@ const App = () => {
               path="/Signup"
               element={<LoginPage isLogin={false} />}
             ></Route>
-            <Route path="/dog-details/:id" element={<DogDetails />}></Route>
-            <Route path="/payment" element={<ProductDisplay />}></Route>
-            <Route path="/create-checkout-session"></Route>
+            <Route
+              path="/dog-details/:id"
+              element={<DogDetails setDog={setDog} />}
+            ></Route>
+            <Route
+              path="/pre-checkout/:id"
+              element={<Checkout dog={dog} />}
+            ></Route>
+            <Route
+              path="/payment-confirmation"
+              element={<PaymentConfirmation />}
+            ></Route>
           </Routes>
           <Footer />
         </JWTContext.Provider>
