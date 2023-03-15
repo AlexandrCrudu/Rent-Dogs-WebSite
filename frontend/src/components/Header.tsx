@@ -6,6 +6,7 @@ const Header = () => {
   const handleLogout = () => {
     console.log("logging out...");
     setJwt("");
+    localStorage.setItem("token", "");
   };
 
   const [jwt, setJwt] = useContext(JWTContext);

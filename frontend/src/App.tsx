@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
 import LoginPage from "./components/LoginPage";
 import Footer from "./components/Footer";
+import Reviews from "./components/Reviews";
 import Checkout from "./components/Checkout";
 import PaymentConfirmation from "./components/PaymentConfirmation";
 import { DogPropsType } from "./types/DogTypes";
@@ -24,6 +25,11 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [dog, setDog] = useState({} as DogPropsType);
+
+  const dogDispatch = (selectedDog: DogPropsType) => {
+    setDog(selectedDog);
+  };
+
   const jwt = useState("");
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -47,7 +53,7 @@ const App = () => {
             ></Route>
             <Route
               path="/dog-details/:id"
-              element={<DogDetails setDog={setDog} />}
+              element={<DogDetails setDog={dogDispatch} />}
             ></Route>
             <Route
               path="/pre-checkout/:id"
@@ -57,6 +63,7 @@ const App = () => {
               path="/payment-confirmation"
               element={<PaymentConfirmation />}
             ></Route>
+            <Route path="/:dogId/reviews" element={<Reviews />}></Route>
           </Routes>
           <Footer />
         </JWTContext.Provider>

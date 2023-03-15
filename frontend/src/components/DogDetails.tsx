@@ -10,7 +10,7 @@ import { DogPropsType } from "../types/DogTypes";
 const DogDetails = ({
   setDog,
 }: {
-  setDog: React.Dispatch<React.SetStateAction<DogPropsType>>;
+  setDog: (selectedDog: DogPropsType) => void;
 }) => {
   const { id } = useParams();
   const [dog, status] = useOneDog(id as string);
@@ -91,6 +91,12 @@ const DogDetails = ({
       </section>
       <section className="details-section details-reviews">
         <h3 className="details-title-profile">Reviews</h3>
+        <div className="details-link-wrapper">
+          <Link className="all-reviews-link" to={`/${dog._id}/reviews`}>
+            {" "}
+            See more{" "}
+          </Link>
+        </div>
         <div className="reviews-wrapper">
           {reviews.map((review) => {
             return <ReviewCard key={review.id} review={review} />;

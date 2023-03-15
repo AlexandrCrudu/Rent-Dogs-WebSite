@@ -8,3 +8,10 @@ export type ReviewType = {
   dog: string;
   user: UserType;
 };
+
+export type GetReviewsTypeApiRes = {
+  status: "success";
+  data: {
+    reviews: ReviewType[];
+  };
+};

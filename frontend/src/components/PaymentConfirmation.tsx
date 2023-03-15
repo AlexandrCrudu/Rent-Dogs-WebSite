@@ -1,6 +1,10 @@
+import { useEffect, useContext } from "react";
+import JWTContext from "../JWTContext";
+
 const PaymentConfirmation = () => {
   const jwt = localStorage.getItem("token");
-  console.log(jwt);
+  // const jwt = useContext(JWTContext)[0];
+  // console.log(jwt);
   const transaction = new URLSearchParams(window.location.search).get(
     "transaction"
   );
@@ -9,24 +13,26 @@ const PaymentConfirmation = () => {
   const dog = new URLSearchParams(window.location.search).get("dog");
   const price = new URLSearchParams(window.location.search).get("price");
 
-  if (transaction === "true") {
-    const createBooking = async () => {
-      await fetch("http://localhost:3001/api/v1/bookings", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          user,
-          dog,
-          price,
-        }),
-      });
-    };
+  useEffect(() => {
+    if (transaction === "true") {
+      const createBooking = async () => {
+        await fetch("http://localhost:3001/api/v1/bookings", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            user,
+            dog,
+            price,
+          }),
+        });
+      };
 
-    createBooking();
-  }
+      createBooking();
+    }
+  }, []);
 
   return (
     <section className="confirmation-section">
