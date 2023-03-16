@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import JWTContext from "./JWTContext";
+import UserContext from "./UserContext";
+import getMe from "../fetch-functions.js/users/getMe";
 import DogDetails from "./components/DogDetails";
 import Header from "./components/Header";
 import CardsSection from "./components/CardsSection";
@@ -25,24 +26,30 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [dog, setDog] = useState({} as DogPropsType);
+  const user = useState({});
+
+  useEffect(() => {
+    async function fetchMe() {
+      try {
+        const res = await getMe();
+        user[1](res.data.user);
+      } catch (err) {
+        window.localStorage.removeItem("token");
+        user[1]({});
+      }
+    }
+
+    fetchMe();
+  }, []);
 
   const dogDispatch = (selectedDog: DogPropsType) => {
     setDog(selectedDog);
   };
 
-  const jwt = useState("");
-  useEffect(() => {
-    const token = window.localStorage.getItem("token");
-
-    if (token) {
-      jwt[1](token);
-    }
-  });
-
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <JWTContext.Provider value={jwt}>
+        <UserContext.Provider value={user}>
           <Header />
           <Routes>
             <Route path="/" element={<CardsSection />}></Route>
@@ -66,7 +73,7 @@ const App = () => {
             <Route path="/:dogId/reviews" element={<Reviews />}></Route>
           </Routes>
           <Footer />
-        </JWTContext.Provider>
+        </UserContext.Provider>
       </QueryClientProvider>
     </BrowserRouter>
   );

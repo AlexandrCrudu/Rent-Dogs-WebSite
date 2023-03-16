@@ -1,6 +1,4 @@
 import { GetUserApiType } from "../../src/types/UserTypes";
-import { useContext } from "react";
-import JWTContext from "../../src/JWTContext";
 
 const getMe = async (): Promise<GetUserApiType> => {
   const jwt = localStorage.getItem("token");

@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import JWTContext from "../JWTContext";
+import UserContext from "../UserContext";
 
 const Header = () => {
   const handleLogout = () => {
     console.log("logging out...");
-    setJwt("");
+    setUser({});
     localStorage.setItem("token", "");
   };
-
-  const [jwt, setJwt] = useContext(JWTContext);
+  const jwt = localStorage.getItem("token");
+  const [user, setUser] = useContext(UserContext);
   return (
     <div className="header-wrap">
       <header>

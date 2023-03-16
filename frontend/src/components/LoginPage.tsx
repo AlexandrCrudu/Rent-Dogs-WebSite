@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-import JWTContext from "../JWTContext";
+import JWTContext from "../UserContext";
 import { signup, login } from "../../fetch-functions.js/users/auth";
 import { LoginApiResType, SignUpAPIResType } from "../types/UserTypes";
 

@@ -1,10 +1,7 @@
-import { useEffect, useContext } from "react";
-import JWTContext from "../JWTContext";
+import { useEffect } from "react";
 
 const PaymentConfirmation = () => {
   const jwt = localStorage.getItem("token");
-  // const jwt = useContext(JWTContext)[0];
-  // console.log(jwt);
   const transaction = new URLSearchParams(window.location.search).get(
     "transaction"
   );

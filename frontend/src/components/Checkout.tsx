@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { DogPropsType } from "../types/DogTypes";
 import { loadStripe } from "@stripe/stripe-js";
-import JWTContext from "../JWTContext";
-import { useContext } from "react";
 import ReactDropdown from "react-dropdown";
 import { Option } from "react-dropdown";
 import "react-dropdown/style.css";
@@ -14,7 +12,7 @@ const stripePromise = loadStripe(
 
 const Checkout = ({ dog }: { dog: DogPropsType }) => {
   const [numberOfDays, setNumberOfDays] = useState(1);
-  const [jwt, setJwt] = useContext(JWTContext);
+  const jwt = localStorage.getItem("token");
   const handleInput = (option: Option) => {
     setNumberOfDays(Number(option.value));
   };
