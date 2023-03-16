@@ -1,8 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
-import { useContext } from "react";
 
-import JWTContext from "../UserContext";
 import ReviewCard from "./ReviewCard";
 import Map from "./Map";
 import { DogPropsType } from "../types/DogTypes";

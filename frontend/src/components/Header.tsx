@@ -5,7 +5,7 @@ import UserContext from "../UserContext";
 const Header = () => {
   const handleLogout = () => {
     console.log("logging out...");
-    setUser({});
+    setUser(null);
     localStorage.setItem("token", "");
   };
   const jwt = localStorage.getItem("token");
@@ -31,7 +31,7 @@ const Header = () => {
             {jwt ? (
               <li>
                 {" "}
-                <Link to="/account">My account</Link>{" "}
+                <Link to="/my-orders">My orders</Link>{" "}
               </li>
             ) : null}
             <li>

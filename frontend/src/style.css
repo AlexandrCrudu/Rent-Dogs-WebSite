@@ -385,7 +385,8 @@ section {
 }
 
 .details-section h1,
-.details-section h3 {
+.details-section h3,
+.write-review-header {
   text-align: center;
   margin-top: 3rem;
   font-size: 3rem;
@@ -563,23 +564,21 @@ section {
 .footer-wrapper {
   width: fit-content;
   margin: 0 auto;
-  padding: 2.5rem;
-  padding-top: 1rem;
   text-align: center;
   color: white;
 }
 
 .footer-section {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .footer-title h4 {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
 .footer-contact {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .footer-contact:first-child {
@@ -594,6 +593,10 @@ section {
 footer {
   background-color: #729481;
   margin-top: auto;
+}
+
+.footer-social {
+  margin-bottom: 1rem;
 }
 
 .card-section {
@@ -661,6 +664,98 @@ footer {
 
 .reviews-outer-wrapper {
   margin-top: 4rem;
+}
+
+.order-dog-avatar {
+  max-height: 10rem;
+  border-radius: 1rem;
+}
+
+.order-wrapper {
+  max-width: 475px;
+  border-radius: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem 0;
+  padding: 1.5rem;
+  background-color: #729481;
+}
+
+.order-details p {
+  text-transform: uppercase;
+  padding: 0.6rem;
+  margin-left: 0.2rem;
+  display: block;
+  color: white;
+}
+
+.order-details span {
+  font-weight: 600;
+}
+
+.orders-title {
+  color: white;
+  text-align: center;
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.order-section {
+  margin-bottom: 1rem;
+}
+
+.place-review {
+  flex-basis: 100%;
+}
+
+textarea {
+  display: block;
+  padding: 2rem;
+  border: 2px solid #729481;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: 3rem auto;
+  margin-bottom: 2rem;
+  max-height: 15rem;
+  width: 40rem;
+
+  resize: vertical;
+  letter-spacing: 0.15rem;
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 1.5rem #729481;
+}
+
+.write-review-section {
+  text-align: center;
+  color: white;
+}
+
+.submit-review-btn {
+  background-color: #729481;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-bottom: 2rem;
+}
+
+.order-textarea-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.write-review-header {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.rating-dropdown {
+  width: 25%;
+  margin: 0 auto;
+  text-align: start;
+  padding-top: 1rem;
 }
 
 /* ----------------------------------TABLET---------------------------*/
@@ -791,5 +886,17 @@ footer {
 @media (min-width: 1220px) {
   .advert {
     display: flex;
+  }
+}
+
+@media (max-width: 690px) {
+  textarea {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 530px) {
+  textarea {
+    width: 20rem;
   }
 }

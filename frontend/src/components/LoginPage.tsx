@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
-import JWTContext from "../UserContext";
 import { signup, login } from "../../fetch-functions.js/users/auth";
 import { LoginApiResType, SignUpAPIResType } from "../types/UserTypes";
 
@@ -15,7 +14,6 @@ type Inputs = {
 const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [jwt, setJwt] = useContext(JWTContext);
 
   const {
     register,
@@ -50,7 +48,6 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
       }
     } else if (res.status === "success") {
       console.log(res);
-      setJwt(res.token);
       window.localStorage.setItem("token", res.token);
       console.log(window.localStorage);
       navigate("/");
@@ -69,7 +66,6 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
         setError(res.message);
       }
     } else {
-      setJwt(res.token);
       window.localStorage.setItem("token", res.token);
       navigate("/");
     }

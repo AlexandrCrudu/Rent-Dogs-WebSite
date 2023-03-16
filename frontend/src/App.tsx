@@ -14,6 +14,10 @@ import Reviews from "./components/Reviews";
 import Checkout from "./components/Checkout";
 import PaymentConfirmation from "./components/PaymentConfirmation";
 import { DogPropsType } from "./types/DogTypes";
+import { UserType } from "./types/UserTypes";
+import ReviewConfirmation from "./components/ReviewConfirmation";
+import WriteReview from "./components/WriteReview";
+import MyOrders from "./components/MyOrders";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +30,7 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [dog, setDog] = useState({} as DogPropsType);
-  const user = useState({});
+  const user = useState(null as UserType | null);
 
   useEffect(() => {
     async function fetchMe() {
@@ -35,7 +39,7 @@ const App = () => {
         user[1](res.data.user);
       } catch (err) {
         window.localStorage.removeItem("token");
-        user[1]({});
+        user[1](null);
       }
     }
 
@@ -70,7 +74,16 @@ const App = () => {
               path="/payment-confirmation"
               element={<PaymentConfirmation />}
             ></Route>
+            <Route path="/my-orders" element={<MyOrders />}></Route>
             <Route path="/:dogId/reviews" element={<Reviews />}></Route>
+            <Route
+              path="/:dogId/write-review"
+              element={<WriteReview />}
+            ></Route>
+            <Route
+              path="/review-confirmation"
+              element={<ReviewConfirmation />}
+            ></Route>
           </Routes>
           <Footer />
         </UserContext.Provider>

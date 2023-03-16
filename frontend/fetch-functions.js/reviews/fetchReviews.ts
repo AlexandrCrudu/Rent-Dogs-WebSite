@@ -8,7 +8,6 @@ export const getReviews: QueryFunction<
   const id = queryKey[1];
 
   const jwt = localStorage.getItem("token");
-  console.log(jwt);
 
   const apiResponse = await fetch(
     `http://localhost:3001/api/v1/dogs/${id}/reviews`,

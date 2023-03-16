@@ -15,3 +15,10 @@ export type GetReviewsTypeApiRes = {
     reviews: ReviewType[];
   };
 };
+
+export type CreateReviewTypeApiRes = {
+  status: "success";
+  data: {
+    review: ReviewType;
+  };
+};
