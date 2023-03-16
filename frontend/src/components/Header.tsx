@@ -26,7 +26,7 @@ const Header = () => {
               <Link to="/">Collection</Link>
             </li>
             <li>
-              <Link to="#">About</Link>
+              <Link to="/about">About</Link>
             </li>
             {jwt ? (
               <li>

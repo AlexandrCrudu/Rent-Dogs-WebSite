@@ -17,6 +17,7 @@ import { DogPropsType } from "./types/DogTypes";
 import { UserType } from "./types/UserTypes";
 import ReviewConfirmation from "./components/ReviewConfirmation";
 import WriteReview from "./components/WriteReview";
+import About from "./components/About";
 import MyOrders from "./components/MyOrders";
 
 const queryClient = new QueryClient({
@@ -84,6 +85,7 @@ const App = () => {
               path="/review-confirmation"
               element={<ReviewConfirmation />}
             ></Route>
+            <Route path="/about" element={<About />}></Route>
           </Routes>
           <Footer />
         </UserContext.Provider>

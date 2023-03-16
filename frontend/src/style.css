@@ -17,6 +17,12 @@ body {
   height: 100vh;
 }
 
+.about {
+  color: white;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
 #root {
   height: 100%;
   display: flex;

@@ -25,6 +25,16 @@ const bookingSchema = new mongoose.Schema({
   },
 });
 
+bookingSchema.pre(/^find/, function (next) {
+  // "this" points to the current query
+
+  this.populate({
+    path: "dog",
+    select: "name pricePerDay",
+  });
+  next();
+});
+
 const Booking = mongoose.model("Booking", bookingSchema);
 
 export default Booking;

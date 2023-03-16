@@ -9,7 +9,7 @@ import {
   createCheckoutSession,
 } from "../controllers/bookingController.js";
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 router.use(protect);
 // router.use(restrictTo("admin"));

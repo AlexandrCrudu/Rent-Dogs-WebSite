@@ -6,8 +6,11 @@ import {
   getUserById,
 } from "../controllers/userController.js";
 
+import bookingRouter from "../routes/bookingsRoutes.js";
+
 const router = express.Router();
 
+router.use("/:userId/bookings", bookingRouter);
 router.use("/me", protect, getMe, getUserById);
 router.post("/signup", signUp);
 router.post("/login", login);
