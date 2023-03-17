@@ -8,7 +8,7 @@ const createReview = async (
   const jwt = localStorage.getItem("token");
 
   const res = await fetch(
-    `http://localhost:3001/api/v1/dogs/${dogId}/reviews`,
+    `http://localhost:3000/api/v1/dogs/${dogId}/reviews`,
     {
       method: "POST",
       headers: {

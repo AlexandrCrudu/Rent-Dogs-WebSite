@@ -39,7 +39,9 @@ const DogCard = (props: DogPropsType) => {
           <span className="card-footer-value">{props.pricePerDay}$</span>
           <span className="card-footer-text">per day</span>
         </p>
-        <p className="card-dog-availability">not available today</p>
+        <p className="card-dog-availability">
+          {!props.available ? "not " : ""}available today
+        </p>
         <Link className="primary-button" to={`dog-details/${props._id}`}>
           Details
         </Link>

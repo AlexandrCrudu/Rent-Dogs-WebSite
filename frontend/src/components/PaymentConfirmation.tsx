@@ -13,7 +13,7 @@ const PaymentConfirmation = () => {
   useEffect(() => {
     if (transaction === "true") {
       const createBooking = async () => {
-        await fetch("http://localhost:3001/api/v1/bookings", {
+        await fetch("http://localhost:3000/api/v1/bookings", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${jwt}`,

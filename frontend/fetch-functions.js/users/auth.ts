@@ -4,7 +4,7 @@ import {
 } from "../../src/types/UserTypes";
 
 export const signup = async (body: SignUserPropsType) => {
-  const res = await fetch(`http://localhost:3001/api/v1/users/signup`, {
+  const res = await fetch(`http://localhost:3000/api/v1/users/signup`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -16,7 +16,7 @@ export const signup = async (body: SignUserPropsType) => {
 };
 
 export const login = async (body: LoginUserPropsType) => {
-  const res = await fetch(`http://localhost:3001/api/v1/users/login`, {
+  const res = await fetch(`http://localhost:3000/api/v1/users/login`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",

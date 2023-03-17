@@ -17,6 +17,7 @@ export type DogPropsType = {
   description: string;
   gender: "male" | "female";
   pricePerDay: number;
+  available: boolean;
 };
 
 export type DogPropsTypeWithReviews = DogPropsType & {

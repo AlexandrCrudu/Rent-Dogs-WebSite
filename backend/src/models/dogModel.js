@@ -57,6 +57,10 @@ const dogSchema = new mongoose.Schema(
       type: String,
       required: [true, "A dog must have a country"],
     },
+    available: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     toJSON: { virtuals: true },

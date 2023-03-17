@@ -24,7 +24,7 @@ const Checkout = ({ dog }: { dog: DogPropsType }) => {
       console.log(await getMe());
 
       const res = await fetch(
-        `http://localhost:3001/api/v1/bookings/create-checkout-session/${dog._id}`,
+        `http://localhost:3000/api/v1/bookings/create-checkout-session/${dog._id}`,
         {
           method: "POST",
           headers: {

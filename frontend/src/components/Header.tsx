@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import TokenContext from "./Contexts/TokenContext";
+import UserContext from "./Contexts/UserContext";
 
 const Header = () => {
   const [token, setToken] = useContext(TokenContext);
+  const [user, setUser] = useContext(UserContext);
   const handleLogout = () => {
     console.log("logging out...");
     setToken(null);
     localStorage.setItem("token", "");
+    setUser(null);
   };
 
   return (

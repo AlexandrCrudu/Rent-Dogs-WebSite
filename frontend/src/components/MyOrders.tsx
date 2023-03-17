@@ -26,7 +26,7 @@ const MyOrders = () => {
       <div>
         {bookings.map((booking) => {
           return (
-            <div className="order-textarea-wrapper">
+            <div key={booking._id} className="order-textarea-wrapper">
               <div className="order-wrapper" key={booking._id}>
                 <img
                   className="order-dog-avatar"

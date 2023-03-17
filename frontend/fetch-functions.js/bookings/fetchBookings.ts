@@ -4,7 +4,7 @@ const getBookings = async (userId: string): Promise<GetBookingApiType> => {
   const jwt = localStorage.getItem("token");
 
   const res = await fetch(
-    `http://localhost:3001/api/v1/users/${userId}/bookings`,
+    `http://localhost:3000/api/v1/users/${userId}/bookings`,
     {
       headers: {
         Authorization: `Bearer ${jwt}`,

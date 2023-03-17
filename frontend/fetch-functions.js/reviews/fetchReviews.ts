@@ -10,7 +10,7 @@ export const getReviews: QueryFunction<
   const jwt = localStorage.getItem("token");
 
   const apiResponse = await fetch(
-    `http://localhost:3001/api/v1/dogs/${id}/reviews`,
+    `http://localhost:3000/api/v1/dogs/${id}/reviews`,
     {
       headers: {
         Authorization: `Bearer ${jwt}`,

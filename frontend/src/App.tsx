@@ -40,6 +40,7 @@ const App = () => {
       try {
         const res = await getMe();
         user[1](res.data.user);
+        token[1](localStorage.getItem("token"));
       } catch (err) {
         window.localStorage.removeItem("token");
         user[1](null);
@@ -48,7 +49,7 @@ const App = () => {
     }
 
     fetchMe();
-  }, [token[0]]);
+  }, []);
 
   const dogDispatch = (selectedDog: DogPropsType) => {
     setDog(selectedDog);

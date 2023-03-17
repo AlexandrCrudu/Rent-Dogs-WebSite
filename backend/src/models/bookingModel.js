@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import Dog from "./dogModel.js";
+import catchAsync from "../utils/catchAsync.js";
 
 const bookingSchema = new mongoose.Schema({
   dog: {
@@ -32,6 +34,11 @@ bookingSchema.pre(/^find/, function (next) {
     path: "dog",
     select: "name pricePerDay",
   });
+  next();
+});
+
+bookingSchema.post("save", async function (doc, next) {
+  await Dog.findOneAndUpdate({ _id: this.dog }, { available: false });
   next();
 });
 
