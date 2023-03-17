@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import getBookings from "../../fetch-functions.js/bookings/fetchBookings";
 import { BookingType } from "../types/BookingTypes";
-import UserContext from "../../src/UserContext";
+import UserContext from "./Contexts/UserContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 

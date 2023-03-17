@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../UserContext";
+import { useContext, useState } from "react";
+import TokenContext from "./Contexts/TokenContext";
 
 const Header = () => {
+  const [token, setToken] = useContext(TokenContext);
   const handleLogout = () => {
     console.log("logging out...");
-    setUser(null);
+    setToken(null);
     localStorage.setItem("token", "");
   };
-  const jwt = localStorage.getItem("token");
-  const [user, setUser] = useContext(UserContext);
+
   return (
     <div className="header-wrap">
       <header>
@@ -28,14 +28,14 @@ const Header = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
-            {jwt ? (
+            {token ? (
               <li>
                 {" "}
                 <Link to="/my-orders">My orders</Link>{" "}
               </li>
             ) : null}
             <li>
-              {jwt ? (
+              {token ? (
                 <Link to="/" onClick={handleLogout}>
                   Logout
                 </Link>

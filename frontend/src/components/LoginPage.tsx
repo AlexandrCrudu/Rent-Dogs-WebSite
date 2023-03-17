@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { signup, login } from "../../fetch-functions.js/users/auth";
 import { LoginApiResType, SignUpAPIResType } from "../types/UserTypes";
+import TokenContext from "./Contexts/TokenContext";
 
 type Inputs = {
   email: string;
@@ -12,6 +13,7 @@ type Inputs = {
 };
 
 const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
+  const [token, setToken] = useContext(TokenContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -67,6 +69,7 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
       }
     } else {
       window.localStorage.setItem("token", res.token);
+      setToken(res.token);
       navigate("/");
     }
   };
