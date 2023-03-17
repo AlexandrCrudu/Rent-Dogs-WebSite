@@ -49,9 +49,7 @@ const LoginPage = ({ isLogin }: { isLogin: Boolean }) => {
         setError(res.message);
       }
     } else if (res.status === "success") {
-      console.log(res);
       window.localStorage.setItem("token", res.token);
-      console.log(window.localStorage);
       navigate("/");
     }
   };

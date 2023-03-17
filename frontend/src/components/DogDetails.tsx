@@ -4,6 +4,7 @@ import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
 import ReviewCard from "./ReviewCard";
 import Map from "./Map";
 import { DogPropsType } from "../types/DogTypes";
+import { useEffect } from "react";
 
 const DogDetails = ({
   setDog,
@@ -13,11 +14,17 @@ const DogDetails = ({
   const { id } = useParams();
   const [dog, status] = useOneDog(id as string);
   const jwt = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (status === "success") {
+      setDog(dog);
+    }
+  }, [dog, status]);
+
   if (status === "loading") {
     return <div>Loading ... </div>;
   }
 
-  setDog(dog);
   // we'll render the first three reviews only
   const reviews = dog.reviews.slice(0, 3);
 
@@ -64,9 +71,6 @@ const DogDetails = ({
                 <div>
                   <span>City - </span> {dog.city}
                 </div>
-                {/* <div>
-                  <span>Country - </span> {dog.countryCode}
-                </div> */}
               </div>
               <hr />
             </div>
