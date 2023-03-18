@@ -4,10 +4,12 @@ import { BookingType } from "../types/BookingTypes";
 import UserContext from "./Contexts/UserContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const MyOrders = () => {
   const [bookings, setBookings] = useState([] as BookingType[]);
   const [user, setUser] = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -18,12 +20,15 @@ const MyOrders = () => {
     fetchBookings();
   }, []);
 
-  console.log(bookings);
+  useEffect(() => {
+    bookings.length ? setLoading(false) : setLoading(true);
+  }, [bookings]);
 
   return (
     <section className="order-section">
       <h3 className="orders-title">My orders</h3>
-      <div>
+      {loading ? <Loader /> : null}
+      <div className="orders-outer-div">
         {bookings.map((booking) => {
           return (
             <div key={booking._id} className="order-textarea-wrapper">

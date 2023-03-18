@@ -133,6 +133,10 @@ nav a:hover {
   justify-content: center;
 }
 
+.loader-div {
+  margin: 0 auto;
+}
+
 .card-img img {
   max-height: 400px;
   width: 100%;
@@ -282,14 +286,16 @@ section {
 
 .filter-wrapper {
   justify-content: center;
-  background-color: transparent;
-  width: fit-content;
+  background-color: #729481;
+  border-radius: 1rem;
+  max-width: 1265px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 1.5rem;
   gap: 1rem;
   align-items: end;
+  justify-content: center;
 }
 
 .filter-wrapper .react-select {
@@ -392,7 +398,8 @@ section {
 
 .details-section h1,
 .details-section h3,
-.write-review-header {
+.write-review-header,
+.no-results {
   text-align: center;
   margin-top: 3rem;
   font-size: 3rem;
@@ -581,6 +588,7 @@ section {
 .footer-title h4 {
   font-size: 1.3rem;
   font-weight: 400;
+  margin-top: 1.75rem;
 }
 
 .footer-contact {
@@ -606,7 +614,7 @@ footer {
 }
 
 .card-section {
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
 }
 
 .checkout-img {
@@ -682,7 +690,7 @@ footer {
   border-radius: 1rem;
   display: flex;
   flex-flow: row wrap;
-  margin: 1rem 0;
+  margin: 0.5rem 0.5rem;
   padding: 1.5rem;
   background-color: #729481;
 }
@@ -703,12 +711,21 @@ footer {
   color: white;
   text-align: center;
   margin: 1rem;
+  padding-top: 1rem;
   font-size: 2rem;
   font-weight: 600;
 }
 
 .order-section {
   margin-bottom: 1rem;
+}
+
+.orders-outer-div {
+  display: block;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .place-review {
@@ -762,6 +779,46 @@ textarea:focus {
   margin: 0 auto;
   text-align: start;
   padding-top: 1rem;
+}
+
+.pagination-wrapper {
+  background-color: #729481;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.pagination-wrapper a {
+  width: 3rem;
+  text-align: center;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: 0.3s linear;
+}
+
+.pagination-wrapper a:hover {
+  color: #fff;
+}
+
+.fas {
+  width: 2.5rem;
+}
+
+.fas img {
+  margin-top: 0.45rem;
+}
+
+.fas:hover {
+  transition: 0.3s linear;
+  filter: hue-rotate(180deg) invert(1);
+}
+
+.card:only-child {
+  flex-basis: 100%;
 }
 
 /* ----------------------------------TABLET---------------------------*/
@@ -835,11 +892,15 @@ textarea:focus {
     );
     max-height: 211px;
   }
+
+  .filter-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 695px) {
   .filter-wrapper {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -848,6 +909,18 @@ textarea:focus {
 @media (min-width: 800px) {
   .card {
     flex-basis: 32.5%;
+  }
+
+  .orders-outer-div {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .order-textarea-wrapper {
+    flex-basis: 39%;
   }
 
   nav ul {

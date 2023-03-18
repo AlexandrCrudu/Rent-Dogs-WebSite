@@ -1,6 +1,5 @@
 import { ReviewType } from "../types/ReviewTypes";
 
-// use a wrapper
 const ReviewCard = ({ review }: { review: ReviewType }) => {
   return (
     <div className="review">

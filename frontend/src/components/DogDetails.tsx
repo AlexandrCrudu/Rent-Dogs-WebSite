@@ -1,10 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
+import { useEffect } from "react";
 
+import { useOneDog } from "../../fetch-functions.js/dogs/useFetchDogs";
 import ReviewCard from "./ReviewCard";
 import Map from "./Map";
 import { DogPropsType } from "../types/DogTypes";
-import { useEffect } from "react";
+import Loader from "./Loader";
 
 const DogDetails = ({
   setDog,
@@ -16,14 +17,10 @@ const DogDetails = ({
   const jwt = localStorage.getItem("token");
 
   useEffect(() => {
-    if (status === "success") {
-      setDog(dog);
-    }
+    if (status === "success") setDog(dog);
   }, [dog, status]);
 
-  if (status === "loading") {
-    return <div>Loading ... </div>;
-  }
+  if (status === "loading") return <Loader />;
 
   // we'll render the first three reviews only
   const reviews = dog.reviews.slice(0, 3);

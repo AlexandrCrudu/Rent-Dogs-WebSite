@@ -1,18 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DogCard from "./DogCard";
 import { DogPropsType } from "../types/DogTypes";
 import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";
+import Loader from "./Loader";
+import Pagination from "../components/Pagination";
+
 import FilterBar from "./FilterBar";
 
 const CardsSection = () => {
   const [queryStr, setQueryStr] = useState("");
-  const [dogs] = useAllDogs(queryStr);
+  const [dogs, status] = useAllDogs(queryStr);
+  const [allDogs, setAllDogs] = useState<DogPropsType[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
+  // const [value, setValue] = useState(0);
 
-  const breeds = dogs.map((dog) => dog.breed);
+  useEffect(() => {
+    status === "loading" ? setLoading(true) : setLoading(false);
+  }, [status]);
+
+  useEffect(() => {
+    if (!allDogs.length) setAllDogs(dogs);
+
+    dogs.length ? setNoResults(false) : setNoResults(true);
+  }, [dogs]);
+
+  // useEffect(() => {
+  //   if (!value && dogs.length) {
+  //     setValue(dogs.length);
+  //   }
+
+  // }, [dogs]);
+
+  const breeds = allDogs.map((dog) => dog.breed);
   const uniqueListOfBreeds = [...new Set(breeds)];
 
-  const countries = dogs.map((dog) => dog.countryCode);
+  const countries = allDogs.map((dog) => dog.countryCode);
   const uniqueListOfCountries = [...new Set(countries)];
 
   function setQueryString(string: string) {
@@ -26,6 +50,10 @@ const CardsSection = () => {
         countries={uniqueListOfCountries}
         setQuery={setQueryString}
       />
+      {loading ? <Loader /> : null}
+      {noResults && !loading ? (
+        <h2 className="no-results">No results found !</h2>
+      ) : null}
       <section className="card-section">
         <ul id="collection-container">
           {dogs.map((dog: DogPropsType) => {
@@ -33,6 +61,12 @@ const CardsSection = () => {
           })}
         </ul>
       </section>
+      {/* <Pagination
+        nrOfElements={value}
+        nrOfElementsPerPage={6}
+        setQuery={setQueryStr}
+        queryString={queryStr}
+      /> */}
     </>
   );
 };

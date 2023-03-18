@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import ReactDropdown from "react-dropdown";
 import { Option } from "react-dropdown";
 import "react-dropdown/style.css";
+
 import getMe from "../../fetch-functions.js/users/getMe";
 
 const stripePromise = loadStripe(
@@ -81,11 +82,5 @@ const Checkout = ({ dog }: { dog: DogPropsType }) => {
     </section>
   );
 };
-
-const Message = ({ message }: { message: string }) => (
-  <section>
-    <p>{message}</p>
-  </section>
-);
 
 export default Checkout;

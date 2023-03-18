@@ -62,38 +62,29 @@ const App = () => {
           <TokenContext.Provider value={token}>
             <Header />
             <Routes>
-              <Route path="/" element={<CardsSection />}></Route>
-              <Route
-                path="/Login"
-                element={<LoginPage isLogin={true} />}
-              ></Route>
-              <Route
-                path="/Signup"
-                element={<LoginPage isLogin={false} />}
-              ></Route>
+              <Route path="/" element={<CardsSection />} />
+              <Route path="/Login" element={<LoginPage isLogin={true} />} />
+              <Route path="/Signup" element={<LoginPage isLogin={false} />} />
               <Route
                 path="/dog-details/:id"
                 element={<DogDetails setDog={dogDispatch} />}
-              ></Route>
+              />
               <Route
                 path="/pre-checkout/:id"
                 element={<Checkout dog={dog} />}
-              ></Route>
+              />
               <Route
                 path="/payment-confirmation"
                 element={<PaymentConfirmation />}
-              ></Route>
-              <Route path="/my-orders" element={<MyOrders />}></Route>
-              <Route path="/:dogId/reviews" element={<Reviews />}></Route>
-              <Route
-                path="/:dogId/write-review"
-                element={<WriteReview />}
-              ></Route>
+              />
+              <Route path="/my-orders" element={<MyOrders />} />
+              <Route path="/:dogId/reviews" element={<Reviews />} />
+              <Route path="/:dogId/write-review" element={<WriteReview />} />
               <Route
                 path="/review-confirmation"
                 element={<ReviewConfirmation />}
-              ></Route>
-              <Route path="/about" element={<About />}></Route>
+              />
+              <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
           </TokenContext.Provider>

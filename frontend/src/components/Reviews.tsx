@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useGetReviews } from "../../fetch-functions.js/reviews/useFetchReviews";
 import ReviewCard from "./ReviewCard";
+import Loader from "./Loader";
 
 const Reviews = () => {
   const { dogId } = useParams();
   const [reviews, status] = useGetReviews(dogId ?? "");
 
-  if (status === "loading") {
-    return <div>... loading</div>;
-  }
+  if (status === "loading") return <Loader />;
 
   return (
     <div className="reviews-outer-wrapper">

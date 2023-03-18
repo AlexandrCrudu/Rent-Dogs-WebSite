@@ -12,6 +12,12 @@ type SignUserAPIErrorType = {
   message: string;
 };
 
+type SignUserApiSuccessType = GetUserApiType & {
+  token: string;
+};
+
+export type SignUpAPIResType = SignUserAPIErrorType | SignUserApiSuccessType;
+
 export type GetUserApiType = {
   status: "success";
   data: {
@@ -23,12 +29,6 @@ export type GetUserApiType = {
     };
   };
 };
-
-type SignUserApiSuccessType = GetUserApiType & {
-  token: string;
-};
-
-export type SignUpAPIResType = SignUserAPIErrorType | SignUserApiSuccessType;
 
 type LoginAPISuccessResType = {
   status: "success";

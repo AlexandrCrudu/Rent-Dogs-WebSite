@@ -1,10 +1,9 @@
 import Select, { MultiValue, SingleValue } from "react-select";
 import "react-dropdown/style.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type OptionType = {
   value: string;
-  label: string;
 };
 
 function FilterBar({
@@ -16,15 +15,6 @@ function FilterBar({
   countries: string[];
   setQuery: (string: string) => void;
 }) {
-  const [selectedBreed, setSelectedBreed] = useState([] as string[]);
-  const [selectedCountry, setSelectedCountry] = useState([] as string[]);
-  const [selectedGender, setSelectedGender] = useState(
-    "all" as "male" | "female" | "all"
-  );
-  const [selectedMaxPrice, setSelectedMaxPrice] = useState(
-    "all" as string[] | string
-  );
-
   const breedOptions = breeds.map((breed) => ({
     value: `${breed}`,
     label: `${breed}`,
@@ -37,8 +27,8 @@ function FilterBar({
 
   const genderOptions = [
     {
-      value: "all",
-      label: "all",
+      value: "not selected",
+      label: "not selected",
     },
     {
       value: "male",
@@ -50,78 +40,97 @@ function FilterBar({
     },
   ];
 
-  const priceOptions = [
+  const sortPriceOptions = [
     {
-      value: "all",
-      label: "all",
+      value: "not selected",
+      label: "not selected",
     },
     {
-      value: "0-50",
-      label: "0-50",
+      value: "low-high",
+      label: "low-high",
     },
     {
-      value: "50-200",
-      label: "50-200",
-    },
-    {
-      value: "200-400",
-      label: "200-400",
-    },
-    {
-      value: "400+",
-      label: "400+",
+      value: "high-low",
+      label: "high-low",
     },
   ];
 
+  const [queryString, setQueryString] = useState("");
+
+  useEffect(() => {
+    setQuery(queryString);
+  }, [queryString]);
+
   const handleBreedChange = (selectedOption: MultiValue<OptionType>) => {
-    setSelectedBreed(selectedOption.map((value) => value.value));
+    const selectedBreeds = selectedOption.map((option) => option.value);
+
+    let newQueryString = queryString;
+
+    breeds.forEach((breedName) => {
+      const regex = new RegExp(`&breed=${breedName}`, "g");
+      newQueryString = newQueryString.replaceAll(regex, "");
+    });
+
+    if (selectedOption.length) {
+      const breedsString = `&breed=${selectedBreeds.join("&breed=")}`;
+      setQueryString(`${newQueryString}${breedsString}`);
+    } else {
+      setQueryString(`${newQueryString}`);
+    }
   };
 
   const handleGenderChange = (selectedOption: SingleValue<OptionType>) => {
-    setSelectedGender(selectedOption?.value as "female" | "male");
+    let newQueryString = queryString;
+    const regex = new RegExp(`&gender=male|&gender=female`, "g");
+    newQueryString = newQueryString.replaceAll(regex, "");
+
+    if (selectedOption && selectedOption.value !== "not selected")
+      setQueryString(`${newQueryString}&gender=${selectedOption.value}`);
+    else if (selectedOption && selectedOption.value === "not selected") {
+      setQueryString(newQueryString);
+    }
+  };
+
+  const handleSortPriceChange = (selectedOption: SingleValue<OptionType>) => {
+    let newQueryString = queryString;
+    const regex = new RegExp(`&sort=price|&sort=-price`, "g");
+    newQueryString = newQueryString.replaceAll(regex, "");
+
+    if (selectedOption && selectedOption.value !== "not selected") {
+      setQueryString(
+        `${newQueryString}&sort=${
+          selectedOption.value === "low-high" ? "pricePerDay" : "-pricePerDay"
+        }`
+      );
+    } else if (selectedOption && selectedOption.value === "not selected") {
+      setQueryString(newQueryString);
+    }
   };
 
   const handleCountryChange = (selectedOption: MultiValue<OptionType>) => {
-    setSelectedCountry(selectedOption.map((value) => value.value));
-  };
+    const selectedCountries = selectedOption.map((option) => option.value);
 
-  const handlePriceChange = (selectedOption: SingleValue<OptionType>) => {
-    if (selectedOption?.value !== "all") {
-      const values = selectedOption?.value.includes("+")
-        ? selectedOption.value
-        : selectedOption?.value.split("-");
-      setSelectedMaxPrice(values || "all");
-    } else setSelectedMaxPrice("all");
-  };
+    let newQueryString = queryString;
 
-  const handleApplyFilters = () => {
-    let queryString = "";
+    countries.forEach((country) => {
+      const regex = new RegExp(`&countryCode=${country}`, "g");
+      newQueryString = newQueryString.replaceAll(regex, "");
+    });
 
-    if (selectedBreed.length) {
-      const breeds = selectedBreed.join("&breed=");
-      queryString = `breed=${breeds}`;
+    if (selectedOption.length) {
+      const countriesString = `&countryCode=${selectedCountries.join(
+        "&countryCode="
+      )}`;
+      setQueryString(`${newQueryString}${countriesString}`);
+    } else {
+      setQueryString(`${newQueryString}`);
     }
-
-    if (selectedCountry.length) {
-      const countries = selectedCountry.join("&countryCode=");
-      queryString += `${queryString ? "&" : ""}countryCode=${countries}`;
-    }
-    if (selectedGender !== "all") {
-      queryString += `${queryString ? "&" : ""}gender=${selectedGender}`;
-    }
-    if (selectedMaxPrice.length !== 0 && selectedMaxPrice !== "all") {
-      queryString += `&pricePerDay`;
-      !Array.isArray(selectedMaxPrice)
-        ? (queryString += `[gte]=${selectedMaxPrice.split("+")[0]}`)
-        : (queryString += `[gte]=${selectedMaxPrice[0]}&pricePerDay[lte]=${selectedMaxPrice[1]}`);
-    }
-    setQuery(queryString);
   };
 
   return (
     <div className="filter-wrapper">
       <div>
-        <h3>Breeds:</h3>
+        <h3>Breeds</h3>
         <Select
           options={breedOptions}
           onChange={handleBreedChange}
@@ -131,7 +140,7 @@ function FilterBar({
         />
       </div>
       <div>
-        <h3>Countries:</h3>
+        <h3>Countries</h3>
         <Select
           options={countryOptions}
           isMulti
@@ -140,23 +149,20 @@ function FilterBar({
         />
       </div>
       <div>
-        <h3>Gender:</h3>
+        <h3>Gender</h3>
         <Select
           options={genderOptions}
           onChange={handleGenderChange}
-          defaultValue={{ value: "all", label: "all" }}
+          defaultValue={{ value: "not selected", label: "not selected" }}
         />
       </div>
       <div>
-        <h3>Price Range:</h3>
+        <h3>Price</h3>
         <Select
-          options={priceOptions}
-          onChange={handlePriceChange}
-          defaultValue={{ value: "all", label: "all" }}
+          options={sortPriceOptions}
+          onChange={handleSortPriceChange}
+          defaultValue={{ value: "not selected", label: "not selected" }}
         />
-      </div>
-      <div className="applyFilters-wrapper">
-        <button onClick={handleApplyFilters}>Apply Filters</button>
       </div>
     </div>
   );
