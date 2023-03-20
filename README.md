@@ -9,4 +9,5 @@ For learning purposes.
 
 # How To Run The Application 
 In the frontend folder, in the terminal, enter the following command: npm run dev
+
 In the backend folder,in a different terminal instance, enter the following command: npm start
