@@ -3,7 +3,7 @@ FrontEnd Technologies - React | Typescript
 
 BackEnd Technologies - Node.js | MongoDB (+mongoose) 
 
-A website in which the user can rent out dogs for a number of days and enojey his/her companionship <3
+A website in which the user can rent out dogs for a number of days and enjoy his/her companionship <3
 
 For learning purposes. 
 
