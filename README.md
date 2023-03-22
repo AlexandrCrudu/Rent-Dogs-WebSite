@@ -1,7 +1,7 @@
 # Rent-Dogs-WebSite
 FrontEnd Technologies - React | Typescript
 
-BackEnd Technologies - Node.js | MongoDB (+mongoose) 
+BackEnd Technologies - Node.js (express) | MongoDB (mongoose) 
 
 A website in which the user can rent out dogs for a number of days and enjoy his/her companionship <3
 
