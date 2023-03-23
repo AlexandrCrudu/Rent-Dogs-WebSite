@@ -19,7 +19,7 @@ export const getReviews: QueryFunction<
   );
 
   if (!apiResponse.ok) {
-    throw new Error(`details/${id} fetch not ok`);
+    throw new Error(`Error: Fetching reviews failed !`);
   }
 
   return apiResponse.json();

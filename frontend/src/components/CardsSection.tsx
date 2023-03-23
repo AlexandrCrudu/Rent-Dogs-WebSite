@@ -4,7 +4,6 @@ import DogCard from "./DogCard";
 import { DogPropsType } from "../types/DogTypes";
 import { useAllDogs } from "../../fetch-functions.js/dogs/useFetchDogs";
 import Loader from "./Loader";
-import Pagination from "../components/Pagination";
 
 import FilterBar from "./FilterBar";
 
@@ -25,13 +24,6 @@ const CardsSection = () => {
 
     dogs.length ? setNoResults(false) : setNoResults(true);
   }, [dogs]);
-
-  // useEffect(() => {
-  //   if (!value && dogs.length) {
-  //     setValue(dogs.length);
-  //   }
-
-  // }, [dogs]);
 
   const breeds = allDogs.map((dog) => dog.breed);
   const uniqueListOfBreeds = [...new Set(breeds)];
@@ -61,12 +53,6 @@ const CardsSection = () => {
           })}
         </ul>
       </section>
-      {/* <Pagination
-        nrOfElements={value}
-        nrOfElementsPerPage={6}
-        setQuery={setQueryStr}
-        queryString={queryStr}
-      /> */}
     </>
   );
 };

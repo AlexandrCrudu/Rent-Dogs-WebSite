@@ -22,7 +22,6 @@ const Checkout = ({ dog }: { dog: DogPropsType }) => {
     try {
       const stripe = await stripePromise;
       const userId = (await getMe()).data.user._id;
-      console.log(await getMe());
 
       const res = await fetch(
         `http://localhost:3000/api/v1/bookings/create-checkout-session/${dog._id}`,

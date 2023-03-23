@@ -20,6 +20,7 @@ import WriteReview from "./components/WriteReview";
 import About from "./components/About";
 import MyOrders from "./components/MyOrders";
 import { UserType } from "./types/UserTypes";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,19 +33,19 @@ const queryClient = new QueryClient({
 
 const App = () => {
   const [dog, setDog] = useState({} as DogPropsType);
-  const user = useState(null as UserType | null);
-  const token = useState(null as string | null);
+  const [user, setUser] = useState(null as UserType | null);
+  const [token, setToken] = useState(null as string | null);
 
   useEffect(() => {
     async function fetchMe() {
       try {
         const res = await getMe();
-        user[1](res.data.user);
-        token[1](localStorage.getItem("token"));
+        setUser(res.data.user);
+        setToken(localStorage.getItem("token"));
       } catch (err) {
-        window.localStorage.removeItem("token");
-        user[1](null);
-        token[1](null);
+        localStorage.removeItem("token");
+        setUser(null);
+        setToken(null);
       }
     }
 
@@ -54,12 +55,12 @@ const App = () => {
   const dogDispatch = (selectedDog: DogPropsType) => {
     setDog(selectedDog);
   };
-
+  // console.log(process.env.REACT_APP_TEST_VARIABLE);
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <UserContext.Provider value={user}>
-          <TokenContext.Provider value={token}>
+        <UserContext.Provider value={[user, setUser]}>
+          <TokenContext.Provider value={[token, setToken]}>
             <Header />
             <Routes>
               <Route path="/" element={<CardsSection />} />
@@ -101,4 +102,8 @@ if (!container) {
 }
 
 const root = createRoot(container);
-root.render(<App />);
+root.render(
+  <ErrorBoundary>
+    <App />
+  </ErrorBoundary>
+);

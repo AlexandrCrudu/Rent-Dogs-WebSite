@@ -16,7 +16,7 @@ export const getAllReviews = catchAsync(async (req, res, next) => {
   });
 });
 
-export const getUserById = catchAsync(async (req, res, next) => {
+export const getReviewById = catchAsync(async (req, res, next) => {
   const review = await Review.findById(req.params.id);
 
   if (!review) {

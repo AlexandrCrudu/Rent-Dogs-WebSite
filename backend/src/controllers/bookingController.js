@@ -41,23 +41,6 @@ export const createCheckoutSession = async (req, res) => {
   });
 };
 
-// export const createBookingCheckout = catchAsync(async (req, res, next) => {
-//   // This is only temporary, because it is unsecure: everyone can make bookings without paying.
-//   // When the website will de deployed, then we should use stripe webhooks to do it properly
-//   const { dog, user, price } = req.query;
-//   console.log(dog);
-//   console.log(user);
-//   console.log(price);
-
-//   if (!dog && !user && !price) {
-//     console.log("doggy");
-//     return next();
-//   }
-//   await Booking.create({ dog, user, price });
-
-//   res.redirect(req.originalUrl.split("?")[0]);
-// });
-
 export const getAllBookings = catchAsync(async (req, res, next) => {
   const bookings = await Booking.find();
 

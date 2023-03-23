@@ -2,8 +2,7 @@ import createReview from "../../fetch-functions.js/reviews/createReview";
 import { useRef, useState } from "react";
 import ReactDropdown from "react-dropdown";
 import { Option } from "react-dropdown";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function WriteReview() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);

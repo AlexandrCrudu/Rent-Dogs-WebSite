@@ -15,5 +15,5 @@ export type BookingType = {
   user: string;
   price: number;
   createdAt: string;
-  paid: true | false;
+  paid: boolean;
 };
