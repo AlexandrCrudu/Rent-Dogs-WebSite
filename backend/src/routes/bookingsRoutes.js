@@ -1,5 +1,5 @@
 import express from "express";
-import { protect, restrictTo } from "../controllers/authController.js";
+import { protect } from "../controllers/authController.js";
 
 import {
   createBooking,
@@ -12,7 +12,6 @@ import {
 const router = express.Router({ mergeParams: true });
 
 router.use(protect);
-// router.use(restrictTo("admin"));
 
 router.post("/create-checkout-session/:dogId", createCheckoutSession);
 

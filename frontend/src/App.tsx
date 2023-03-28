@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import UserContext from "./components/Contexts/UserContext";
@@ -20,7 +21,7 @@ import WriteReview from "./components/WriteReview";
 import About from "./components/About";
 import MyOrders from "./components/MyOrders";
 import { UserType } from "./types/UserTypes";
-import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorMessage from "./components/ErrorMessage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,7 +56,7 @@ const App = () => {
   const dogDispatch = (selectedDog: DogPropsType) => {
     setDog(selectedDog);
   };
-  // console.log(process.env.REACT_APP_TEST_VARIABLE);
+
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
@@ -103,7 +104,7 @@ if (!container) {
 
 const root = createRoot(container);
 root.render(
-  <ErrorBoundary>
+  <ErrorBoundary fallback={<ErrorMessage />}>
     <App />
   </ErrorBoundary>
 );

@@ -821,6 +821,11 @@ textarea:focus {
   flex-basis: 100%;
 }
 
+.errorBoundary-section {
+  font-size: 1.5rem;
+  margin-top: 15rem;
+}
+
 /* ----------------------------------TABLET---------------------------*/
 
 @media (min-width: 550px) {

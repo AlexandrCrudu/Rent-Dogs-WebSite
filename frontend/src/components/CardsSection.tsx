@@ -13,7 +13,6 @@ const CardsSection = () => {
   const [allDogs, setAllDogs] = useState<DogPropsType[]>([]);
   const [loading, setLoading] = useState(false);
   const [noResults, setNoResults] = useState(false);
-  // const [value, setValue] = useState(0);
 
   useEffect(() => {
     status === "loading" ? setLoading(true) : setLoading(false);

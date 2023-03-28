@@ -4,7 +4,7 @@ const getBookings = async (userId: string): Promise<GetBookingApiType> => {
   const jwt = localStorage.getItem("token");
 
   const res = await fetch(
-    `http://localhost:3000/api/v1/users/${userId}/bookings`,
+    `${import.meta.env.VITE_ROOT_API_ENDPOINT}/users/${userId}/bookings`,
     {
       headers: {
         Authorization: `Bearer ${jwt}`,

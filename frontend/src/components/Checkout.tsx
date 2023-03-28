@@ -7,9 +7,7 @@ import "react-dropdown/style.css";
 
 import getMe from "../../fetch-functions.js/users/getMe";
 
-const stripePromise = loadStripe(
-  "pk_test_51MlGwQEbCwvIHv2DRAZuYHQAjlZJK37ZB2U7MHfUBZvI3HqwrUd4GHSfbSP72ZSqGZLYHpIqQCGGYHX10yJ9ZOWf00YZRyiu1H"
-);
+const stripePromise = loadStripe(`${import.meta.env.VITE_PK_STRIPE}`);
 
 const Checkout = ({ dog }: { dog: DogPropsType }) => {
   const [numberOfDays, setNumberOfDays] = useState(1);

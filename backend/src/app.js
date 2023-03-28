@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import AdminBro from "admin-bro";
 
+dotenv.config({ path: "./.env" });
+console.log(process.env);
+
 import options from "./adminUtils/admin-options.js";
 import buildAdminRouter from "./adminUtils/admin-router.js";
 import dogRouter from "./routes/dogRoutes.js";
@@ -19,8 +22,6 @@ process.on("unhandledException", (err) => {
   console.log("UNHANDLED EXCEPTION! Shutting down...");
   process.exit(1);
 });
-
-dotenv.config({ path: "./config.env" });
 
 const admin = new AdminBro(options);
 const router = buildAdminRouter(admin);

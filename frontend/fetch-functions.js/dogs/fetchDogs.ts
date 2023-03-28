@@ -7,7 +7,9 @@ export const fetchDog: QueryFunction<
 > = async ({ queryKey }) => {
   const id = queryKey[1];
 
-  const apiResponse = await fetch(`http://localhost:3000/api/v1/dogs/${id}`);
+  const apiResponse = await fetch(
+    `${import.meta.env.VITE_ROOT_API_ENDPOINT}/dogs/${id}`
+  );
 
   if (!apiResponse.ok) {
     throw new Error(`details/${id} fetch not ok`);
@@ -23,7 +25,7 @@ export const fetchAllDogs: QueryFunction<
   const queryStr = queryKey[1];
 
   const apiResponse = await fetch(
-    `http://localhost:3000/api/v1/dogs?${queryStr}`
+    `${import.meta.env.VITE_ROOT_API_ENDPOINT}/dogs?${queryStr}`
   );
 
   if (!apiResponse.ok) {

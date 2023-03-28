@@ -10,7 +10,7 @@ export const getReviews: QueryFunction<
   const jwt = localStorage.getItem("token");
 
   const apiResponse = await fetch(
-    `http://localhost:3000/api/v1/dogs/${id}/reviews`,
+    `${import.meta.env.VITE_ROOT_API_ENDPOINT}/dogs/${id}/reviews`,
     {
       headers: {
         Authorization: `Bearer ${jwt}`,

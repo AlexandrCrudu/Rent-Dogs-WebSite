@@ -5,11 +5,8 @@ import Dog from "../models/dogModel.js";
 
 import stripe from "stripe";
 
-const stripeInstance = stripe(
-  "sk_test_51MlGwQEbCwvIHv2DZKYsP7ZHbfWGzI5B5xneJZctW6QXAZt6q6IZefv3Iq0KtRuT9mxOM84aFdSCSebZ75C2rpB800D5oL3fEP"
-);
-
 export const createCheckoutSession = async (req, res) => {
+  const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
   const dog = await Dog.findById(req.params.dogId);
   const session = await stripeInstance.checkout.sessions.create({
     payment_method_types: ["card"],
