@@ -12,4 +12,4 @@ In the frontend folder, in the terminal, enter the following command: npm run de
 
 In the backend folder,in a different terminal instance, enter the following command: npm start
 
-P.S This was the first website that I built using React and Typescript. I built this as a project to learn React and Typescript before applying to a job that I knew required this tech stack. And then I got my first ever job. 
+P.S This was the first website that I built using React and Typescript (so don't judge the code quality haha). I built this as a project to learn React and Typescript before applying to a job that I knew required this tech stack. That ended up being my first ever job. 
